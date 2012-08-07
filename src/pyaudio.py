@@ -332,9 +332,9 @@ class Stream:
         `PyAudio.open`. A stream can either be input, output, or both.
 
 
-        :param `PA_manager`: A reference to the managing `PyAudio` instance
-        :param `rate`: Sampling rate
-        :param `channels`: Number of channels
+        :param `PA_manager`: A reference to the managing `PyAudio` instance.
+        :param `rate`: Sampling rate.
+        :param `channels`: Number of channels.
         :param `format`: Sampling size and format. See `PaSampleFormat`.
         :param `input`: Specifies whether this is an input stream.
             Defaults to False.
@@ -357,12 +357,30 @@ class Stream:
         :param `output_host_api_specific_stream_info`: Specifies a host API
             specific stream information data structure for output.
             See `PaMacCoreStreamInfo`.
-        :param `stream_callback1: Specifies a callback function
-            the callback function must conform to the following signature:
-            callback(frame_count, input_time, current_time, output_time, in_data)
-            and it must return a tuple (out_data, flag), where flag must be
-            either paContinue, paComplete or paAbort. If out_data does not
-            contain at least frame_count frames, paComplete will be assumed.
+        :param `stream_callback`: Specifies a callback function.
+            The callback function must conform to the following signature:
+            ``callback(frame_count, input_time, current_time, output_time,
+            in_data)``
+
+            The function will be called whenever PyAudio needs new audio data to
+            play or has new data available from its inputs.
+
+            ``frame_count`` is the number of frames available/required.
+
+            ``input_time`` is time when the first sample was recorded by the ADC.
+
+            ``current_time`` is the time the callback was called.
+
+            ``output_time`` is the time when the first sample will be played by
+            the DAC.
+
+            ``in_data`` contains the input data (if available).
+
+            The function must return a tuple containing the frames to play and a
+            status flag. The flag can be either `paContinue` (normal
+            playback/recording), `paComplete` (stop playing/recording after this block)
+            or `paAbort` (error). If the output data is shorter than ``frame_count``,
+            `paComplete` is implied.
 
         :raise ValueError: Neither input nor output
          are set True.

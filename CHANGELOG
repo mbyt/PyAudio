@@ -1,3 +1,10 @@
+2012-08-07 Bastian Bechtold <basti@bastibe.de>
+
+  PyAudio 0.2.51
+
+  - Added documentation for non-blocking audio playback
+
+
 2011-05-18 Bastian Bechtold <basti.bechtold@gmail.com>
 
   PyAudio 0.2.5
@@ -45,4 +52,3 @@
 2008-02-12  Justin Mazzola Paluska  <jmp@mit.edu>
 
   - Initial version of debian packaging.
-

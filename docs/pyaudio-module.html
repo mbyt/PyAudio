@@ -58,8 +58,7 @@
 </table>
 <!-- ==================== MODULE DESCRIPTION ==================== -->
 <h1 class="epydoc">Module pyaudio</h1><p class="nomargin-top"><span class="codelink"><a href="pyaudio-pysrc.html">source&nbsp;code</a></span></p>
-<p>PyAudio : Python Bindings for PortAudio v19.</p>
-<p><strong>These bindings only support PortAudio blocking mode.</strong></p>
+PyAudio : Python Bindings for PortAudio v19.
 
 <hr />
 <div class="fields">      <p><strong>Version:</strong>
@@ -205,7 +204,7 @@ the specified <code class="link">width</code>.</td>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="paMacCoreStreamInfo"></a><span class="summary-name">paMacCoreStreamInfo</span> = <code title="pa.paMacCoreStreamInfo">pa.paMacCoreStreamInfo</code>
+        <a name="__package__"></a><span class="summary-name">__package__</span> = <code title="None">None</code>
     </td>
   </tr>
 <tr bgcolor="#e8f0f8" >
@@ -215,8 +214,13 @@ the specified <code class="link">width</code>.</td>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a href="pyaudio-module.html#PaSampleFormat" class="summary-name">PaSampleFormat</a> = <code title="['paFloat32', 'paInt32', 'paInt24', 'paInt16', 'paInt8', 'paUInt8', 'p\
-aCustomFormat']">['paFloat32', 'paInt32', 'paInt24', 'paInt16'<code class="variable-ellipsis">...</code></code><br />
+        <a href="pyaudio-module.html#PaSampleFormat" class="summary-name">PaSampleFormat</a> = <code title="['paFloat32',
+ 'paInt32',
+ 'paInt24',
+ 'paInt16',
+ 'paInt8',
+ 'paUInt8',
+ 'paCustomFormat']"><code class="variable-group">[</code><code class="variable-quote">'</code><code class="variable-string">paFloat32</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">paInt32</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">paInt24</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">paInt16</code><code class="variable-quote">'</code><code class="variable-ellipsis">...</code></code><br />
       A list of all PortAudio <tt class="rst-docutils literal">PaSampleFormat</tt> value constants.
     </td>
   </tr>
@@ -224,9 +228,15 @@ aCustomFormat']">['paFloat32', 'paInt32', 'paInt24', 'paInt16'<code class="varia
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a href="pyaudio-module.html#PaHostApiTypeId" class="summary-name">PaHostApiTypeId</a> = <code title="['paInDevelopment', 'paDirectSound', 'paMME', 'paASIO', 'paSoundManage\
-r', 'paCoreAudio', 'paOSS', 'paALSA', 'paAL', 'paBeOS', 'paWDMKS', 'pa\
-JACK', 'paWASAPI', 'paNoDevice']">['paInDevelopment', 'paDirectSound', 'paMME'<code class="variable-ellipsis">...</code></code><br />
+        <a href="pyaudio-module.html#PaHostApiTypeId" class="summary-name">PaHostApiTypeId</a> = <code title="['paInDevelopment',
+ 'paDirectSound',
+ 'paMME',
+ 'paASIO',
+ 'paSoundManager',
+ 'paCoreAudio',
+ 'paOSS',
+ 'paALSA',
+..."><code class="variable-group">[</code><code class="variable-quote">'</code><code class="variable-string">paInDevelopment</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">paDirectSound</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">paMME</code><code class="variable-quote">'</code><code class="variable-ellipsis">...</code></code><br />
       A list of all PortAudio <tt class="rst-docutils literal">PaHostApiTypeId</tt> constants.
     </td>
   </tr>
@@ -234,18 +244,26 @@ JACK', 'paWASAPI', 'paNoDevice']">['paInDevelopment', 'paDirectSound', 'paMME'<c
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a href="pyaudio-module.html#PaErrorCode" class="summary-name">PaErrorCode</a> = <code title="['paNoError', 'paNotInitialized', 'paUnanticipatedHostError', 'paInval\
-idChannelCount', 'paInvalidSampleRate', 'paInvalidDevice', 'paInvalidF\
-lag', 'paSampleFormatNotSupported', 'paBadIODeviceCombination', 'paIns\
-ufficientMemory', 'paBufferTooBig', 'paBufferTooSmall', 'paNullCallbac\
-k', 'paBadStreamPtr', 'paTimedOut', 'paInternalError', 'paDeviceUnavai\
-lable', 'paIncompatibleHostApiSpecificStreamInfo', 'paStreamIsStopped'\
-, 'paStreamIsNotStopped', 'paInputOverflowed', 'paOutputUnderflowed', \
-'paHostApiNotFound', 'paInvalidHostApi', 'paCanNotReadFromACallbackStr\
-...">['paNoError', 'paNotInitialized', 'paUnanticipat<code class="variable-ellipsis">...</code></code><br />
+        <a href="pyaudio-module.html#PaErrorCode" class="summary-name">PaErrorCode</a> = <code title="['paNoError',
+ 'paNotInitialized',
+ 'paUnanticipatedHostError',
+ 'paInvalidChannelCount',
+ 'paInvalidSampleRate',
+ 'paInvalidDevice',
+ 'paInvalidFlag',
+ 'paSampleFormatNotSupported',
+..."><code class="variable-group">[</code><code class="variable-quote">'</code><code class="variable-string">paNoError</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">paNotInitialized</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">paUnanticipat</code><code class="variable-ellipsis">...</code></code><br />
       A list of all PortAudio <tt class="rst-docutils literal">PaErrorCode</tt> constants.
 Typically, error code constants are included in Python
 exception objects (as the second argument).
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyaudio-module.html#PaCallbackReturnCode" class="summary-name">PaCallbackReturnCode</a> = <code title="['paContinue', 'paComplete', 'paAbort']"><code class="variable-group">[</code><code class="variable-quote">'</code><code class="variable-string">paContinue</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">paComplete</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">paAbort</code><code class="variable-quote">'</code><code class="variable-group">]</code></code><br />
+      A list of all PortAudio callback return codes.
     </td>
   </tr>
 <tr bgcolor="#e8f0f8" >
@@ -255,49 +273,49 @@ exception objects (as the second argument).
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="paFloat32"></a><span class="summary-name">paFloat32</span> = <code title="pa.paFloat32">pa.paFloat32</code>
+        <a name="paFloat32"></a><span class="summary-name">paFloat32</span> = <code title="1">1</code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="paInt32"></a><span class="summary-name">paInt32</span> = <code title="pa.paInt32">pa.paInt32</code>
+        <a name="paInt32"></a><span class="summary-name">paInt32</span> = <code title="2">2</code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="paInt24"></a><span class="summary-name">paInt24</span> = <code title="pa.paInt24">pa.paInt24</code>
+        <a name="paInt24"></a><span class="summary-name">paInt24</span> = <code title="4">4</code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="paInt16"></a><span class="summary-name">paInt16</span> = <code title="pa.paInt16">pa.paInt16</code>
+        <a name="paInt16"></a><span class="summary-name">paInt16</span> = <code title="8">8</code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="paInt8"></a><span class="summary-name">paInt8</span> = <code title="pa.paInt8">pa.paInt8</code>
+        <a name="paInt8"></a><span class="summary-name">paInt8</span> = <code title="16">16</code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="paUInt8"></a><span class="summary-name">paUInt8</span> = <code title="pa.paUInt8">pa.paUInt8</code>
+        <a name="paUInt8"></a><span class="summary-name">paUInt8</span> = <code title="32">32</code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="paCustomFormat"></a><span class="summary-name">paCustomFormat</span> = <code title="pa.paCustomFormat">pa.paCustomFormat</code>
+        <a name="paCustomFormat"></a><span class="summary-name">paCustomFormat</span> = <code title="65536">65536</code>
     </td>
   </tr>
 <tr bgcolor="#e8f0f8" >
@@ -307,98 +325,98 @@ exception objects (as the second argument).
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="paInDevelopment"></a><span class="summary-name">paInDevelopment</span> = <code title="pa.paInDevelopment">pa.paInDevelopment</code>
+        <a name="paInDevelopment"></a><span class="summary-name">paInDevelopment</span> = <code title="0">0</code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="paDirectSound"></a><span class="summary-name">paDirectSound</span> = <code title="pa.paDirectSound">pa.paDirectSound</code>
+        <a name="paDirectSound"></a><span class="summary-name">paDirectSound</span> = <code title="1">1</code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="paMME"></a><span class="summary-name">paMME</span> = <code title="pa.paMME">pa.paMME</code>
+        <a name="paMME"></a><span class="summary-name">paMME</span> = <code title="2">2</code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="paASIO"></a><span class="summary-name">paASIO</span> = <code title="pa.paASIO">pa.paASIO</code>
+        <a name="paASIO"></a><span class="summary-name">paASIO</span> = <code title="3">3</code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="paSoundManager"></a><span class="summary-name">paSoundManager</span> = <code title="pa.paSoundManager">pa.paSoundManager</code>
+        <a name="paSoundManager"></a><span class="summary-name">paSoundManager</span> = <code title="4">4</code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="paCoreAudio"></a><span class="summary-name">paCoreAudio</span> = <code title="pa.paCoreAudio">pa.paCoreAudio</code>
+        <a name="paCoreAudio"></a><span class="summary-name">paCoreAudio</span> = <code title="5">5</code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="paOSS"></a><span class="summary-name">paOSS</span> = <code title="pa.paOSS">pa.paOSS</code>
+        <a name="paOSS"></a><span class="summary-name">paOSS</span> = <code title="7">7</code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="paALSA"></a><span class="summary-name">paALSA</span> = <code title="pa.paALSA">pa.paALSA</code>
+        <a name="paALSA"></a><span class="summary-name">paALSA</span> = <code title="8">8</code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="paAL"></a><span class="summary-name">paAL</span> = <code title="pa.paAL">pa.paAL</code>
+        <a name="paAL"></a><span class="summary-name">paAL</span> = <code title="9">9</code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="paBeOS"></a><span class="summary-name">paBeOS</span> = <code title="pa.paBeOS">pa.paBeOS</code>
+        <a name="paBeOS"></a><span class="summary-name">paBeOS</span> = <code title="10">10</code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="paWDMKS"></a><span class="summary-name">paWDMKS</span> = <code title="pa.paWDMKS">pa.paWDMKS</code>
+        <a name="paWDMKS"></a><span class="summary-name">paWDMKS</span> = <code title="11">11</code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="paJACK"></a><span class="summary-name">paJACK</span> = <code title="pa.paJACK">pa.paJACK</code>
+        <a name="paJACK"></a><span class="summary-name">paJACK</span> = <code title="12">12</code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="paWASAPI"></a><span class="summary-name">paWASAPI</span> = <code title="pa.paWASAPI">pa.paWASAPI</code>
+        <a name="paWASAPI"></a><span class="summary-name">paWASAPI</span> = <code title="13">13</code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="paNoDevice"></a><span class="summary-name">paNoDevice</span> = <code title="pa.paNoDevice">pa.paNoDevice</code>
+        <a name="paNoDevice"></a><span class="summary-name">paNoDevice</span> = <code title="-1">-1</code>
     </td>
   </tr>
 <tr bgcolor="#e8f0f8" >
@@ -408,203 +426,227 @@ exception objects (as the second argument).
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="paNoError"></a><span class="summary-name">paNoError</span> = <code title="pa.paNoError">pa.paNoError</code>
+        <a name="paNoError"></a><span class="summary-name">paNoError</span> = <code title="0">0</code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="paNotInitialized"></a><span class="summary-name">paNotInitialized</span> = <code title="pa.paNotInitialized">pa.paNotInitialized</code>
+        <a name="paNotInitialized"></a><span class="summary-name">paNotInitialized</span> = <code title="-10000">-10000</code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="paUnanticipatedHostError"></a><span class="summary-name">paUnanticipatedHostError</span> = <code title="pa.paUnanticipatedHostError">pa.paUnanticipatedHostError</code>
+        <a name="paUnanticipatedHostError"></a><span class="summary-name">paUnanticipatedHostError</span> = <code title="-9999">-9999</code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="paInvalidChannelCount"></a><span class="summary-name">paInvalidChannelCount</span> = <code title="pa.paInvalidChannelCount">pa.paInvalidChannelCount</code>
+        <a name="paInvalidChannelCount"></a><span class="summary-name">paInvalidChannelCount</span> = <code title="-9998">-9998</code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="paInvalidSampleRate"></a><span class="summary-name">paInvalidSampleRate</span> = <code title="pa.paInvalidSampleRate">pa.paInvalidSampleRate</code>
+        <a name="paInvalidSampleRate"></a><span class="summary-name">paInvalidSampleRate</span> = <code title="-9997">-9997</code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="paInvalidDevice"></a><span class="summary-name">paInvalidDevice</span> = <code title="pa.paInvalidDevice">pa.paInvalidDevice</code>
+        <a name="paInvalidDevice"></a><span class="summary-name">paInvalidDevice</span> = <code title="-9996">-9996</code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="paInvalidFlag"></a><span class="summary-name">paInvalidFlag</span> = <code title="pa.paInvalidFlag">pa.paInvalidFlag</code>
+        <a name="paInvalidFlag"></a><span class="summary-name">paInvalidFlag</span> = <code title="-9995">-9995</code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="paSampleFormatNotSupported"></a><span class="summary-name">paSampleFormatNotSupported</span> = <code title="pa.paSampleFormatNotSupported">pa.paSampleFormatNotSupported</code>
+        <a name="paSampleFormatNotSupported"></a><span class="summary-name">paSampleFormatNotSupported</span> = <code title="-9994">-9994</code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="paBadIODeviceCombination"></a><span class="summary-name">paBadIODeviceCombination</span> = <code title="pa.paBadIODeviceCombination">pa.paBadIODeviceCombination</code>
+        <a name="paBadIODeviceCombination"></a><span class="summary-name">paBadIODeviceCombination</span> = <code title="-9993">-9993</code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="paInsufficientMemory"></a><span class="summary-name">paInsufficientMemory</span> = <code title="pa.paInsufficientMemory">pa.paInsufficientMemory</code>
+        <a name="paInsufficientMemory"></a><span class="summary-name">paInsufficientMemory</span> = <code title="-9992">-9992</code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="paBufferTooBig"></a><span class="summary-name">paBufferTooBig</span> = <code title="pa.paBufferTooBig">pa.paBufferTooBig</code>
+        <a name="paBufferTooBig"></a><span class="summary-name">paBufferTooBig</span> = <code title="-9991">-9991</code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="paBufferTooSmall"></a><span class="summary-name">paBufferTooSmall</span> = <code title="pa.paBufferTooSmall">pa.paBufferTooSmall</code>
+        <a name="paBufferTooSmall"></a><span class="summary-name">paBufferTooSmall</span> = <code title="-9990">-9990</code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="paNullCallback"></a><span class="summary-name">paNullCallback</span> = <code title="pa.paNullCallback">pa.paNullCallback</code>
+        <a name="paNullCallback"></a><span class="summary-name">paNullCallback</span> = <code title="-9989">-9989</code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="paBadStreamPtr"></a><span class="summary-name">paBadStreamPtr</span> = <code title="pa.paBadStreamPtr">pa.paBadStreamPtr</code>
+        <a name="paBadStreamPtr"></a><span class="summary-name">paBadStreamPtr</span> = <code title="-9988">-9988</code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="paTimedOut"></a><span class="summary-name">paTimedOut</span> = <code title="pa.paTimedOut">pa.paTimedOut</code>
+        <a name="paTimedOut"></a><span class="summary-name">paTimedOut</span> = <code title="-9987">-9987</code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="paInternalError"></a><span class="summary-name">paInternalError</span> = <code title="pa.paInternalError">pa.paInternalError</code>
+        <a name="paInternalError"></a><span class="summary-name">paInternalError</span> = <code title="-9986">-9986</code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="paDeviceUnavailable"></a><span class="summary-name">paDeviceUnavailable</span> = <code title="pa.paDeviceUnavailable">pa.paDeviceUnavailable</code>
+        <a name="paDeviceUnavailable"></a><span class="summary-name">paDeviceUnavailable</span> = <code title="-9985">-9985</code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a href="pyaudio-module.html#paIncompatibleHostApiSpecificStreamInfo" class="summary-name">paIncompatibleHostApiSpecificStreamInfo</a> = <code title="pa.paIncompatibleHostApiSpecificStreamInfo">pa.paIncompatibleHos<code class="variable-ellipsis">...</code></code>
+        <a name="paIncompatibleHostApiSpecificStreamInfo"></a><span class="summary-name">paIncompatibleHostApiSpecificStreamInfo</span> = <code title="-9984">-9984</code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="paStreamIsStopped"></a><span class="summary-name">paStreamIsStopped</span> = <code title="pa.paStreamIsStopped">pa.paStreamIsStopped</code>
+        <a name="paStreamIsStopped"></a><span class="summary-name">paStreamIsStopped</span> = <code title="-9983">-9983</code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="paStreamIsNotStopped"></a><span class="summary-name">paStreamIsNotStopped</span> = <code title="pa.paStreamIsNotStopped">pa.paStreamIsNotStopped</code>
+        <a name="paStreamIsNotStopped"></a><span class="summary-name">paStreamIsNotStopped</span> = <code title="-9982">-9982</code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="paInputOverflowed"></a><span class="summary-name">paInputOverflowed</span> = <code title="pa.paInputOverflowed">pa.paInputOverflowed</code>
+        <a name="paInputOverflowed"></a><span class="summary-name">paInputOverflowed</span> = <code title="-9981">-9981</code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="paOutputUnderflowed"></a><span class="summary-name">paOutputUnderflowed</span> = <code title="pa.paOutputUnderflowed">pa.paOutputUnderflowed</code>
+        <a name="paOutputUnderflowed"></a><span class="summary-name">paOutputUnderflowed</span> = <code title="-9980">-9980</code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="paHostApiNotFound"></a><span class="summary-name">paHostApiNotFound</span> = <code title="pa.paHostApiNotFound">pa.paHostApiNotFound</code>
+        <a name="paHostApiNotFound"></a><span class="summary-name">paHostApiNotFound</span> = <code title="-9979">-9979</code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="paInvalidHostApi"></a><span class="summary-name">paInvalidHostApi</span> = <code title="pa.paInvalidHostApi">pa.paInvalidHostApi</code>
+        <a name="paInvalidHostApi"></a><span class="summary-name">paInvalidHostApi</span> = <code title="-9978">-9978</code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a href="pyaudio-module.html#paCanNotReadFromACallbackStream" class="summary-name">paCanNotReadFromACallbackStream</a> = <code title="pa.paCanNotReadFromACallbackStream">pa.paCanNotReadFromACallback<code class="variable-ellipsis">...</code></code>
+        <a name="paCanNotReadFromACallbackStream"></a><span class="summary-name">paCanNotReadFromACallbackStream</span> = <code title="-9977">-9977</code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a href="pyaudio-module.html#paCanNotWriteToACallbackStream" class="summary-name">paCanNotWriteToACallbackStream</a> = <code title="pa.paCanNotWriteToACallbackStream">pa.paCanNotWriteToACallbackSt<code class="variable-ellipsis">...</code></code>
+        <a name="paCanNotWriteToACallbackStream"></a><span class="summary-name">paCanNotWriteToACallbackStream</span> = <code title="-9976">-9976</code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a href="pyaudio-module.html#paCanNotReadFromAnOutputOnlyStream" class="summary-name">paCanNotReadFromAnOutputOnlyStream</a> = <code title="pa.paCanNotReadFromAnOutputOnlyStream">pa.paCanNotReadFromAnOutp<code class="variable-ellipsis">...</code></code>
+        <a name="paCanNotReadFromAnOutputOnlyStream"></a><span class="summary-name">paCanNotReadFromAnOutputOnlyStream</span> = <code title="-9975">-9975</code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a href="pyaudio-module.html#paCanNotWriteToAnInputOnlyStream" class="summary-name">paCanNotWriteToAnInputOnlyStream</a> = <code title="pa.paCanNotWriteToAnInputOnlyStream">pa.paCanNotWriteToAnInputOn<code class="variable-ellipsis">...</code></code>
+        <a name="paCanNotWriteToAnInputOnlyStream"></a><span class="summary-name">paCanNotWriteToAnInputOnlyStream</span> = <code title="-9974">-9974</code>
     </td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="paIncompatibleStreamHostApi"></a><span class="summary-name">paIncompatibleStreamHostApi</span> = <code title="pa.paIncompatibleStreamHostApi">pa.paIncompatibleStreamHostApi</code>
+        <a name="paIncompatibleStreamHostApi"></a><span class="summary-name">paIncompatibleStreamHostApi</span> = <code title="-9973">-9973</code>
+    </td>
+  </tr>
+<tr bgcolor="#e8f0f8" >
+  <th colspan="2" class="group-header"
+    >&nbsp;&nbsp;&nbsp;&nbsp;PaCallbackReturnCode Values</th></tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="paContinue"></a><span class="summary-name">paContinue</span> = <code title="0">0</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="paComplete"></a><span class="summary-name">paComplete</span> = <code title="1">1</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="paAbort"></a><span class="summary-name">paAbort</span> = <code title="2">2</code>
     </td>
   </tr>
 </table>
@@ -701,8 +743,13 @@ format.</li>
   <dl class="fields">
     <dt>Value:</dt>
       <dd><table><tr><td><pre class="variable">
-['paFloat32', 'paInt32', 'paInt24', 'paInt16', 'paInt8', 'paUInt8', 'p<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-aCustomFormat']
+<code class="variable-group">[</code><code class="variable-quote">'</code><code class="variable-string">paFloat32</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">paInt32</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">paInt24</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">paInt16</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">paInt8</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">paUInt8</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">paCustomFormat</code><code class="variable-quote">'</code><code class="variable-group">]</code>
 </pre></td></tr></table>
 </dd>
   </dl>
@@ -722,9 +769,15 @@ aCustomFormat']
   <dl class="fields">
     <dt>Value:</dt>
       <dd><table><tr><td><pre class="variable">
-['paInDevelopment', 'paDirectSound', 'paMME', 'paASIO', 'paSoundManage<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-r', 'paCoreAudio', 'paOSS', 'paALSA', 'paAL', 'paBeOS', 'paWDMKS', 'pa<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-JACK', 'paWASAPI', 'paNoDevice']
+<code class="variable-group">[</code><code class="variable-quote">'</code><code class="variable-string">paInDevelopment</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">paDirectSound</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">paMME</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">paASIO</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">paSoundManager</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">paCoreAudio</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">paOSS</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">paALSA</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+<code class="variable-ellipsis">...</code>
 </pre></td></tr></table>
 </dd>
   </dl>
@@ -746,105 +799,34 @@ exception objects (as the second argument).</p>
   <dl class="fields">
     <dt>Value:</dt>
       <dd><table><tr><td><pre class="variable">
-['paNoError', 'paNotInitialized', 'paUnanticipatedHostError', 'paInval<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-idChannelCount', 'paInvalidSampleRate', 'paInvalidDevice', 'paInvalidF<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-lag', 'paSampleFormatNotSupported', 'paBadIODeviceCombination', 'paIns<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-ufficientMemory', 'paBufferTooBig', 'paBufferTooSmall', 'paNullCallbac<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-k', 'paBadStreamPtr', 'paTimedOut', 'paInternalError', 'paDeviceUnavai<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-lable', 'paIncompatibleHostApiSpecificStreamInfo', 'paStreamIsStopped'<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-, 'paStreamIsNotStopped', 'paInputOverflowed', 'paOutputUnderflowed', <span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-'paHostApiNotFound', 'paInvalidHostApi', 'paCanNotReadFromACallbackStr<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+<code class="variable-group">[</code><code class="variable-quote">'</code><code class="variable-string">paNoError</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">paNotInitialized</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">paUnanticipatedHostError</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">paInvalidChannelCount</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">paInvalidSampleRate</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">paInvalidDevice</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">paInvalidFlag</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">paSampleFormatNotSupported</code><code class="variable-quote">'</code><code class="variable-op">,</code>
 <code class="variable-ellipsis">...</code>
 </pre></td></tr></table>
 </dd>
   </dl>
 </td></tr></table>
 </div>
-<a name="paIncompatibleHostApiSpecificStreamInfo"></a>
+<a name="PaCallbackReturnCode"></a>
 <div>
 <table class="details" border="1" cellpadding="3"
        cellspacing="0" width="100%" bgcolor="white">
 <tr><td>
-  <h3 class="epydoc">paIncompatibleHostApiSpecificStreamInfo</h3>
-  
+  <h3 class="epydoc">PaCallbackReturnCode</h3>
+  <p>A list of all PortAudio callback return codes.</p>
+<p>See: <a href="pyaudio-module.html#paContinue" class="link">paContinue</a>, <a href="pyaudio-module.html#paComplete" class="link">paComplete</a>, <a href="pyaudio-module.html#paAbort" class="link">paAbort</a></p>
   <dl class="fields">
   </dl>
   <dl class="fields">
     <dt>Value:</dt>
       <dd><table><tr><td><pre class="variable">
-pa.paIncompatibleHostApiSpecificStreamInfo
-</pre></td></tr></table>
-</dd>
-  </dl>
-</td></tr></table>
-</div>
-<a name="paCanNotReadFromACallbackStream"></a>
-<div>
-<table class="details" border="1" cellpadding="3"
-       cellspacing="0" width="100%" bgcolor="white">
-<tr><td>
-  <h3 class="epydoc">paCanNotReadFromACallbackStream</h3>
-  
-  <dl class="fields">
-  </dl>
-  <dl class="fields">
-    <dt>Value:</dt>
-      <dd><table><tr><td><pre class="variable">
-pa.paCanNotReadFromACallbackStream
-</pre></td></tr></table>
-</dd>
-  </dl>
-</td></tr></table>
-</div>
-<a name="paCanNotWriteToACallbackStream"></a>
-<div>
-<table class="details" border="1" cellpadding="3"
-       cellspacing="0" width="100%" bgcolor="white">
-<tr><td>
-  <h3 class="epydoc">paCanNotWriteToACallbackStream</h3>
-  
-  <dl class="fields">
-  </dl>
-  <dl class="fields">
-    <dt>Value:</dt>
-      <dd><table><tr><td><pre class="variable">
-pa.paCanNotWriteToACallbackStream
-</pre></td></tr></table>
-</dd>
-  </dl>
-</td></tr></table>
-</div>
-<a name="paCanNotReadFromAnOutputOnlyStream"></a>
-<div>
-<table class="details" border="1" cellpadding="3"
-       cellspacing="0" width="100%" bgcolor="white">
-<tr><td>
-  <h3 class="epydoc">paCanNotReadFromAnOutputOnlyStream</h3>
-  
-  <dl class="fields">
-  </dl>
-  <dl class="fields">
-    <dt>Value:</dt>
-      <dd><table><tr><td><pre class="variable">
-pa.paCanNotReadFromAnOutputOnlyStream
-</pre></td></tr></table>
-</dd>
-  </dl>
-</td></tr></table>
-</div>
-<a name="paCanNotWriteToAnInputOnlyStream"></a>
-<div>
-<table class="details" border="1" cellpadding="3"
-       cellspacing="0" width="100%" bgcolor="white">
-<tr><td>
-  <h3 class="epydoc">paCanNotWriteToAnInputOnlyStream</h3>
-  
-  <dl class="fields">
-  </dl>
-  <dl class="fields">
-    <dt>Value:</dt>
-      <dd><table><tr><td><pre class="variable">
-pa.paCanNotWriteToAnInputOnlyStream
+<code class="variable-group">[</code><code class="variable-quote">'</code><code class="variable-string">paContinue</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">paComplete</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">paAbort</code><code class="variable-quote">'</code><code class="variable-group">]</code>
 </pre></td></tr></table>
 </dd>
   </dl>
@@ -882,7 +864,7 @@ pa.paCanNotWriteToAnInputOnlyStream
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Thu Sep 16 04:53:11 2010
+    Generated by Epydoc 3.0.1 on Tue Aug  7 14:05:55 2012
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"
