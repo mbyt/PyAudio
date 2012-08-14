@@ -1,12 +1,11 @@
-"""
-PyAudio Example: Low Level C Module test.
-
-Play a wave file.
-"""
+# An example of what NOT to do:
+# Don't reuse a stream object after closing it!
 
 import _portaudio
 import wave
 import sys
+
+chunk = 1024
 
 def get_format_from_width(width, unsigned = True):
     """
@@ -37,46 +36,41 @@ def get_format_from_width(width, unsigned = True):
     elif width == 4:
         return p.paFloat32
     else:
-        raise ValueError, "Invalid width: %d" % width
+        raise ValueError("Invalid width: %d" % width)
 
-
-chunk = 1024
 
 if len(sys.argv) < 2:
-    print "Plays a wave file.\n\nUsage: %s filename.wav" % sys.argv[0]
+    print("Usage: %s filename.wav" % sys.argv[0])
     sys.exit(-1)
 
 wf = wave.open(sys.argv[1], 'rb')
 
-
-
-print "* initializing"
+print("* initializing")
 _portaudio.initialize()
 
-print "* opening"
-stream = _portaudio.open(rate = wf.getframerate(),
+print("* opening")
+stream = _portaudio.open(format = get_format_from_width(wf.getsampwidth()),
                          channels = wf.getnchannels(),
-                         format = get_format_from_width(wf.getsampwidth()),
+                         rate = wf.getframerate(),
+                         input = True,
                          output = True)
 
 data = wf.readframes(chunk)
 
-print "* starting stream"
+print("* starting stream")
 _portaudio.start_stream(stream)
-
-print "available: %d" % _portaudio.get_stream_write_available(stream)
 
 while data != '':
     _portaudio.write_stream(stream, data, chunk)
     data = wf.readframes(chunk)
 
-print "* stopping stream"
-_portaudio.stop_stream(stream)
-
-print "* closing stream"
+# OK...
 _portaudio.close(stream)
 
-# always match an initialize() call with a terminate()
-_portaudio.terminate()
+# Fixed -- no longer relevant. An exception will be thrown.
 
-
+# -----DEPRECATED COMMENT:
+# BUT! don't re-use the stream object after closing it!
+# Depending on the platform, this might crash Python.
+print("* CRASH ----------*")
+print(_portaudio.get_stream_read_available(stream))
