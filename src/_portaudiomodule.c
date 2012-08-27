@@ -1497,9 +1497,12 @@ _stream_callback_cfunction(const void *input, void *output, unsigned long frameC
     return paAbort;
 
   PyObject *py_frameCount = PyLong_FromUnsignedLong(frameCount);
-  PyObject *py_inTime     = PyLong_FromUnsignedLong(timeInfo->inputBufferAdcTime);
-  PyObject *py_curTime    = PyLong_FromUnsignedLong(timeInfo->currentTime);
-  PyObject *py_outTime    = PyLong_FromUnsignedLong(timeInfo->outputBufferDacTime);
+  PyObject *py_timeInfo =
+	  Py_BuildValue("{s:d,s:d,s:d}",
+					"inputBufferAdcTime",  timeInfo->inputBufferAdcTime,
+					"currentTime",         timeInfo->currentTime,
+					"outputBufferDacTime", timeInfo->outputBufferDacTime);
+  PyObject *py_flags = PyLong_FromUnsignedLong(statusFlags);
 
   PyObject *py_inputData;
   if (input) {
@@ -1511,15 +1514,18 @@ _stream_callback_cfunction(const void *input, void *output, unsigned long frameC
 
   PyObject *py_result;
   py_result = PyObject_CallFunctionObjArgs(py_callback,
+										   py_inputData,
                                            py_frameCount,
-                                           py_inTime,
-                                           py_curTime,
-                                           py_outTime,
-                                           py_inputData,
+										   py_timeInfo,
+										   py_flags,
                                            NULL);
   if (input) {
     Py_DECREF(py_inputData);
   }
+
+  Py_DECREF(py_frameCount);
+  Py_DECREF(py_timeInfo);
+  Py_DECREF(py_flags);
 
   if (py_result == NULL) {
 #ifdef VERBOSE
@@ -1535,20 +1541,35 @@ _stream_callback_cfunction(const void *input, void *output, unsigned long frameC
   const char* pData;
   int output_len;
   int returnVal;
-  if (!PyArg_ParseTuple(py_result, "s#i",
-                        &pData,
-                        &output_len,
-                        &returnVal)) {
-      PyGILState_Release(_state);
-      return paAbort;
+  if (PyTuple_Check(py_result)) {
+	  if (!PyArg_ParseTuple(py_result, "s#i",
+							&pData,
+							&output_len,
+							&returnVal)) {
+		  PyGILState_Release(_state);
+		  Py_DECREF(py_result);
+		  return paAbort;
+	  }
+  } else {
+	  if (!PyArg_Parse(py_result, "s#",
+					   &pData,
+					   &output_len)) {
+		  PyGILState_Release(_state);
+		  Py_DECREF(py_result);
+		  return paAbort;
+	  } else if (output_len == frameCount*bytesPerFrame) {
+		  returnVal = paContinue;
+	  } else {
+		  returnVal = paComplete;
+	  }
   }
+  memcpy(output,pData,output_len <= frameCount*bytesPerFrame
+		 ? output_len
+		 : frameCount*bytesPerFrame);
   Py_DECREF(py_result);
 
-  char *output_data = (char*)output;
-  memcpy(output_data,pData,output_len);
-
   if (output_len < frameCount*bytesPerFrame) {
-    memset(output_data+output_len,0,frameCount*bytesPerFrame-output_len);
+    memset(output+output_len,0,frameCount*bytesPerFrame-output_len);
     PyGILState_Release(_state);
     return paComplete;
   }
@@ -2504,6 +2525,7 @@ init_portaudio(void)
 #else
   m = Py_InitModule("_portaudio", paMethods);
 #endif
+  PyEval_InitThreads();
 
   Py_INCREF(&_pyAudio_StreamType);
   Py_INCREF(&_pyAudio_paDeviceInfoType);
@@ -2590,6 +2612,11 @@ init_portaudio(void)
   PyModule_AddIntConstant(m, "paContinue", paContinue);
   PyModule_AddIntConstant(m, "paComplete", paComplete);
   PyModule_AddIntConstant(m, "paAbort", paAbort);
+  PyModule_AddIntConstant(m, "paInputOverflow", paInputOverflow);
+  PyModule_AddIntConstant(m, "paInputUnderflow", paInputUnderflow);
+  PyModule_AddIntConstant(m, "paOutputOverflow", paOutputOverflow);
+  PyModule_AddIntConstant(m, "paOutputUnderflow", paOutputUnderflow);
+  PyModule_AddIntConstant(m, "paPrimingOutput", paPrimingOutput);
 
 #ifdef MACOSX
   PyModule_AddIntConstant(m, "paMacCoreChangeDeviceParameters",

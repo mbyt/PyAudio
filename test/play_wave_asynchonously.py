@@ -1,7 +1,7 @@
 """ PyAudio Example: Play a wave file in real time"""
 
 from __future__ import division
-from pyaudio import PyAudio, paInt16, paContinue, paComplete
+from pyaudio import *
 from scipy.io.wavfile import read
 from time import sleep
 import sys
@@ -13,7 +13,7 @@ import sys
 # has to copy too much data around.
 # Generally, you should go as low as possible and avoid doing heavy calculations
 # in the callback.
-blocksize = 4
+blocksize = 64
 
 if len(sys.argv) != 2:
     print('Plays a wave file.\n\nUsage: %s filename.wav' % sys.argv[0])
@@ -27,13 +27,19 @@ pa = PyAudio()
 # This function is called every $(blocksize) samples and must process all input
 # data and provide all output data. Note that this function is critical for
 # performance. No heavy calculations should be done in this function.
-def callback(frame_count, input_time, current_time, output_time, in_data):
+def callback(in_data, frame_count, time_info, flags):
+    if flags != 0:
+        if flags & paInputOverflow:   print("Input Overflow")
+        if flags & paInputUnderflow:  print("Input Underflow")
+        if flags & paOutputOverflow:  print("Output Overflow")
+        if flags & paOutputUnderflow: print("Output Underflow")
+        if flags & paPrimingOutput:   print("Priming Output")
     played_frames = callback.played_frames
     callback.played_frames = callback.played_frames + frame_count
     if callback.played_frames < audiolen:
-        return(wave[played_frames:played_frames+frame_count], paContinue)
+        return(wave[played_frames:played_frames+frame_count])
     else:
-        return(wave[played_frames:audiolen], paComplete)
+        return(wave[played_frames:audiolen])
 
 callback.played_frames = 0
 

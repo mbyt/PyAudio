@@ -217,6 +217,18 @@ paAbort = pa.paAbort
 # group them together for epydoc
 PaCallbackReturnCode = ['paContinue', 'paComplete', 'paAbort']
 
+###### portaudio callback flags ######
+paInputOverflow = pa.paInputOverflow
+paInputUnderflow = pa.paInputUnderflow
+paOutputOverflow = pa.paOutputOverflow
+paOutputUnderflow = pa.paOutputUnderflow
+paPrimingOutput = pa.paPrimingOutput
+
+# group them together for epydoc
+PaStreamCallbackFlags = ['paInputOverflow', 'paInputUnderflow',
+                         'paOutputOverflow', 'paOutputUnderflow',
+                         'paPrimingOutput']
+
 ############################################################
 # Convenience Functions
 ############################################################
@@ -359,28 +371,32 @@ class Stream:
             See `PaMacCoreStreamInfo`.
         :param `stream_callback`: Specifies a callback function.
             The callback function must conform to the following signature:
-            ``callback(frame_count, input_time, current_time, output_time,
-            in_data)``
+            ``callback(in_data, frame_count, time_info, flags)``
 
             The function will be called whenever PyAudio needs new audio data to
             play or has new data available from its inputs.
 
-            ``frame_count`` is the number of frames available/required.
-
-            ``input_time`` is time when the first sample was recorded by the ADC.
-
-            ``current_time`` is the time the callback was called.
-
-            ``output_time`` is the time when the first sample will be played by
-            the DAC.
-
             ``in_data`` contains the input data (if available).
 
-            The function must return a tuple containing the frames to play and a
-            status flag. The flag can be either `paContinue` (normal
-            playback/recording), `paComplete` (stop playing/recording after this block)
-            or `paAbort` (error). If the output data is shorter than ``frame_count``,
-            `paComplete` is implied.
+            ``frame_count`` is the number of frames available/required.
+
+            ``time_info`` is a dictionary containing the current time, the time
+            the ADC recorded the last sample, and the time the ADC will output
+            the first sample.
+
+            ``flags`` contains a bitwise and of some callback error flags. These
+            are ``paInputOverflow``, ``paInputUnderflow``, ``paOutputOverflow``,
+            ``paOutputUnderflow``, and ``paPrimingOutput``.
+
+            The function must return either a tuple containing the frames to
+            play and a status flag or just the audio data.
+            If given a tuple, the flag can be either `paContinue` (normal
+            playback/recording), `paComplete` (stop playing/recording after
+            this block) or `paAbort` (error).
+            If given just the audio data, returning an exactly the right number
+            of frames implies ``paContinue``, while returning less than the right
+            number of frames implies ``paComplete``. Returning nothing implies
+            ``paError``.
 
         :raise ValueError: Neither input nor output
          are set True.
