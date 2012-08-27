@@ -7,13 +7,13 @@ from time import sleep
 import sys
 
 # Your callback will be called every $(blocksize) samples. Small block sizes
-# (i.e. <32) can introduce clicking noises if the callback function can not
+# (i.e. <4) can introduce clicking noises if the callback function can not
 # return fast enough.
 # Long block sizes (i.e. >5000) can introduce clicking noises because portaudio
 # has to copy too much data around.
 # Generally, you should go as low as possible and avoid doing heavy calculations
 # in the callback.
-blocksize = 64
+blocksize = 16
 
 if len(sys.argv) != 2:
     print('Plays a wave file.\n\nUsage: %s filename.wav' % sys.argv[0])
@@ -36,10 +36,10 @@ def callback(in_data, frame_count, time_info, flags):
         if flags & paPrimingOutput:   print("Priming Output")
     played_frames = callback.played_frames
     callback.played_frames = callback.played_frames + frame_count
-    if callback.played_frames < audiolen:
-        return(wave[played_frames:played_frames+frame_count])
-    else:
-        return(wave[played_frames:audiolen])
+
+    # on the last run, this will return less than frame_count frames, thus
+    # implying paComplete, which will stop the audio thread.
+    return(wave[played_frames:played_frames+frame_count])
 
 callback.played_frames = 0
 
