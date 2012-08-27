@@ -15,6 +15,9 @@ pyaudio.paIncompatibleStreamHostApi	pyaudio-module.html#paIncompatibleStreamHost
 pyaudio.paInputOverflowed	pyaudio-module.html#paInputOverflowed
 pyaudio.paFloat32	pyaudio-module.html#paFloat32
 pyaudio.paInt24	pyaudio-module.html#paInt24
+pyaudio.paInputOverflow	pyaudio-module.html#paInputOverflow
+pyaudio.paPrimingOutput	pyaudio-module.html#paPrimingOutput
+pyaudio.paOutputUnderflow	pyaudio-module.html#paOutputUnderflow
 pyaudio.paIncompatibleHostApiSpecificStreamInfo	pyaudio-module.html#paIncompatibleHostApiSpecificStreamInfo
 pyaudio.paContinue	pyaudio-module.html#paContinue
 pyaudio.paInsufficientMemory	pyaudio-module.html#paInsufficientMemory
@@ -24,6 +27,7 @@ pyaudio.__package__	pyaudio-module.html#__package__
 pyaudio.paALSA	pyaudio-module.html#paALSA
 pyaudio.paBeOS	pyaudio-module.html#paBeOS
 pyaudio.paDeviceUnavailable	pyaudio-module.html#paDeviceUnavailable
+pyaudio.PaStreamCallbackFlags	pyaudio-module.html#PaStreamCallbackFlags
 pyaudio.paComplete	pyaudio-module.html#paComplete
 pyaudio.get_portaudio_version_text	pyaudio-module.html#get_portaudio_version_text
 pyaudio.paBufferTooSmall	pyaudio-module.html#paBufferTooSmall
@@ -36,7 +40,7 @@ pyaudio.paDirectSound	pyaudio-module.html#paDirectSound
 pyaudio.paTimedOut	pyaudio-module.html#paTimedOut
 pyaudio.PaCallbackReturnCode	pyaudio-module.html#PaCallbackReturnCode
 pyaudio.paInternalError	pyaudio-module.html#paInternalError
-pyaudio.paWASAPI	pyaudio-module.html#paWASAPI
+pyaudio.paOutputOverflow	pyaudio-module.html#paOutputOverflow
 pyaudio.paInt16	pyaudio-module.html#paInt16
 pyaudio.paCanNotReadFromACallbackStream	pyaudio-module.html#paCanNotReadFromACallbackStream
 pyaudio.paInt32	pyaudio-module.html#paInt32
@@ -50,6 +54,7 @@ pyaudio.PaHostApiTypeId	pyaudio-module.html#PaHostApiTypeId
 pyaudio.paASIO	pyaudio-module.html#paASIO
 pyaudio.paUInt8	pyaudio-module.html#paUInt8
 pyaudio.paOutputUnderflowed	pyaudio-module.html#paOutputUnderflowed
+pyaudio.paInputUnderflow	pyaudio-module.html#paInputUnderflow
 pyaudio.paHostApiNotFound	pyaudio-module.html#paHostApiNotFound
 pyaudio.paBufferTooBig	pyaudio-module.html#paBufferTooBig
 pyaudio.paUnanticipatedHostError	pyaudio-module.html#paUnanticipatedHostError
@@ -57,6 +62,7 @@ pyaudio.paCoreAudio	pyaudio-module.html#paCoreAudio
 pyaudio.paInvalidDevice	pyaudio-module.html#paInvalidDevice
 pyaudio.paAL	pyaudio-module.html#paAL
 pyaudio.paCanNotWriteToACallbackStream	pyaudio-module.html#paCanNotWriteToACallbackStream
+pyaudio.paWASAPI	pyaudio-module.html#paWASAPI
 pyaudio.get_portaudio_version	pyaudio-module.html#get_portaudio_version
 pyaudio.paNullCallback	pyaudio-module.html#paNullCallback
 pyaudio.paBadStreamPtr	pyaudio-module.html#paBadStreamPtr

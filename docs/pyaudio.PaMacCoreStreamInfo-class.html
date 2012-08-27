@@ -34,7 +34,7 @@
       <th class="navbar" align="right" width="100%">
         <table border="0" cellpadding="0" cellspacing="0">
           <tr><th class="navbar" align="center"
-            ><a class="navbar" target="_top" href="http://people.csail.mit.edu/hubert/pyaudio/">PyAudio-0.2.4</a></th>
+            ><a class="navbar" target="_top" href="http://people.csail.mit.edu/hubert/pyaudio">PyAudio-0.2.7</a></th>
           </tr></table></th>
   </tr>
 </table>
@@ -59,18 +59,30 @@
 </table>
 <!-- ==================== CLASS DESCRIPTION ==================== -->
 <h1 class="epydoc">Class PaMacCoreStreamInfo</h1><p class="nomargin-top"><span class="codelink"><a href="pyaudio-pysrc.html#PaMacCoreStreamInfo">source&nbsp;code</a></span></p>
+<pre class="literalblock">
+
 Mac OS X-only: PaMacCoreStreamInfo is a PortAudio Host API
 Specific Stream Info data structure for specifying Mac OS
 X-only settings. Instantiate this class (if desired) and pass
-the instance as the argument in <a href="pyaudio.PyAudio-class.html#open" class="link">PyAudio.open</a> to parameters
-<tt class="rst-rst-rst-docutils literal rst-rst-docutils literal rst-docutils literal">input_host_api_specific_stream_info</tt> or
-<tt class="rst-rst-rst-docutils literal rst-rst-docutils literal rst-docutils literal">output_host_api_specific_stream_info</tt>. (See <a href="pyaudio.Stream-class.html#__init__" class="link">Stream.__init__</a>.)
+the instance as the argument in `PyAudio.open` to parameters
+``input_host_api_specific_stream_info`` or
+``output_host_api_specific_stream_info``. (See `Stream.__init__`.)
 
-<hr />
-<div class="fields">      <p><strong>Note:</strong>
-        Mac OS X only.
-      </p>
-</div><!-- ==================== INSTANCE METHODS ==================== -->
+:note: Mac OS X only.
+
+:group Flags (constants):
+  paMacCoreChangeDeviceParameters, paMacCoreFailIfConversionRequired,
+  paMacCoreConversionQualityMin, paMacCoreConversionQualityMedium,
+  paMacCoreConversionQualityLow, paMacCoreConversionQualityHigh,
+  paMacCoreConversionQualityMax, paMacCorePlayNice,
+  paMacCorePro, paMacCoreMinimizeCPUButPlayNice, paMacCoreMinimizeCPU
+
+:group Settings:
+  get_flags, get_channel_map
+
+</pre>
+
+<!-- ==================== INSTANCE METHODS ==================== -->
 <a name="section-InstanceMethods"></a>
 <table class="summary" border="1" cellpadding="3"
        cellspacing="0" width="100%" bgcolor="white">
@@ -87,9 +99,7 @@ the instance as the argument in <a href="pyaudio.PyAudio-class.html#open" class=
           <td><span class="summary-sig"><a href="pyaudio.PaMacCoreStreamInfo-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
         <span class="summary-sig-arg">flags</span>=<span class="summary-sig-default">None</span>,
         <span class="summary-sig-arg">channel_map</span>=<span class="summary-sig-default">None</span>)</span><br />
-      Initialize with flags and channel_map. See PortAudio
-documentation for more details on these parameters; they are
-passed almost verbatim to the PortAudio library.</td>
+      Initialize with flags and channel_map.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="pyaudio-pysrc.html#PaMacCoreStreamInfo.__init__">source&nbsp;code</a></span>
             
@@ -99,16 +109,13 @@ passed almost verbatim to the PortAudio library.</td>
       
     </td>
   </tr>
-<tr bgcolor="#e8f0f8" >
-  <th colspan="2" class="group-header"
-    >&nbsp;&nbsp;&nbsp;&nbsp;Settings</th></tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">int</span>
+      <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="get_flags"></a><span class="summary-sig-name">get_flags</span>(<span class="summary-sig-arg">self</span>)</span><br />
+          <td><span class="summary-sig"><a href="pyaudio.PaMacCoreStreamInfo-class.html#get_flags" class="summary-sig-name">get_flags</a>(<span class="summary-sig-arg">self</span>)</span><br />
       Return the flags set at instantiation.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="pyaudio-pysrc.html#PaMacCoreStreamInfo.get_flags">source&nbsp;code</a></span>
@@ -121,11 +128,11 @@ passed almost verbatim to the PortAudio library.</td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">tuple or None</span>
+      <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="get_channel_map"></a><span class="summary-sig-name">get_channel_map</span>(<span class="summary-sig-arg">self</span>)</span><br />
+          <td><span class="summary-sig"><a href="pyaudio.PaMacCoreStreamInfo-class.html#get_channel_map" class="summary-sig-name">get_channel_map</a>(<span class="summary-sig-arg">self</span>)</span><br />
       Return the channel map set at instantiation.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="pyaudio-pysrc.html#PaMacCoreStreamInfo.get_channel_map">source&nbsp;code</a></span>
@@ -145,9 +152,6 @@ passed almost verbatim to the PortAudio library.</td>
   <td align="left" colspan="2" class="table-header">
     <span class="table-header">Class Variables</span></td>
 </tr>
-<tr bgcolor="#e8f0f8" >
-  <th colspan="2" class="group-header"
-    >&nbsp;&nbsp;&nbsp;&nbsp;Flags (constants)</th></tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
@@ -252,17 +256,69 @@ passed almost verbatim to the PortAudio library.</td>
     </td>
   </tr></table>
   
-  Initialize with flags and channel_map. See PortAudio
+  <pre class="literalblock">
+
+Initialize with flags and channel_map. See PortAudio
 documentation for more details on these parameters; they are
 passed almost verbatim to the PortAudio library.
+
+:param `flags`: paMacCore* flags OR'ed together.
+    See `PaMacCoreStreamInfo`.
+:param `channel_map`: An array describing the channel mapping.
+    See PortAudio documentation for usage.
+
+</pre>
   <dl class="fields">
-    <dt>Parameters:</dt>
-    <dd><ul class="nomargin-top">
-        <li><strong class="pname"><code>flags</code></strong> - paMacCore* flags OR'ed together.
-See <a href="pyaudio.PaMacCoreStreamInfo-class.html" class="link">PaMacCoreStreamInfo</a>.</li>
-        <li><strong class="pname"><code>channel_map</code></strong> - An array describing the channel mapping.
-See PortAudio documentation for usage.</li>
-    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_flags"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_flags</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyaudio-pysrc.html#PaMacCoreStreamInfo.get_flags">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Return the flags set at instantiation.
+
+:rtype: int
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_channel_map"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_channel_map</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyaudio-pysrc.html#PaMacCoreStreamInfo.get_channel_map">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Return the channel map set at instantiation.
+
+:rtype: tuple or None
+
+</pre>
+  <dl class="fields">
   </dl>
 </td></tr></table>
 </div>
@@ -291,14 +347,14 @@ See PortAudio documentation for usage.</li>
       <th class="navbar" align="right" width="100%">
         <table border="0" cellpadding="0" cellspacing="0">
           <tr><th class="navbar" align="center"
-            ><a class="navbar" target="_top" href="http://people.csail.mit.edu/hubert/pyaudio/">PyAudio-0.2.4</a></th>
+            ><a class="navbar" target="_top" href="http://people.csail.mit.edu/hubert/pyaudio">PyAudio-0.2.7</a></th>
           </tr></table></th>
   </tr>
 </table>
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Tue Aug  7 14:05:55 2012
+    Generated by Epydoc 3.0.1 on Mon Aug 27 16:55:23 2012
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"

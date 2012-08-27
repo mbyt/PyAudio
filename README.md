@@ -1,4 +1,4 @@
-PyAudio v0.2.6: Python Bindings for PortAudio.
+PyAudio v0.2.7: Python Bindings for PortAudio.
 ==============================================
 
 Originally taken from:
