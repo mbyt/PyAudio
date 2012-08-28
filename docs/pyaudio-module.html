@@ -58,78 +58,7 @@
 </table>
 <!-- ==================== MODULE DESCRIPTION ==================== -->
 <h1 class="epydoc">Module pyaudio</h1><p class="nomargin-top"><span class="codelink"><a href="pyaudio-pysrc.html">source&nbsp;code</a></span></p>
-<pre class="literalblock">
 PyAudio : Python Bindings for PortAudio v19.
-
-:var PaSampleFormat:
-  A list of all PortAudio ``PaSampleFormat`` value constants.
-
-  See: `paInt32`, `paInt24`, `paInt16`, `paInt8`, and `paUInt8`.
-
-:var PaHostApiTypeId:
-  A list of all PortAudio ``PaHostApiTypeId`` constants.
-
-  See: `paInDevelopment`, `paDirectSound`, `paMME`, `paASIO`,
-  `paSoundManager`, `paCoreAudio`, `paOSS`, `paALSA`, `paAL`, *et al...*
-
-:var PaErrorCode:
-  A list of all PortAudio ``PaErrorCode`` constants.
-  Typically, error code constants are included in Python
-  exception objects (as the second argument).
-
-  See: `paNoError`, `paNotInitialized`, `paUnanticipatedHostError`,
-  *et al...*
-
-:var PaCallbackReturnCode:
-    A list of all PortAudio callback return codes.
-
-    See: `paContinue`, `paComplete`, `paAbort`
-
-:group PortAudio Constants:
-  PaSampleFormat, PaHostApiTypeId, PaErrorCode, PaCallbackReturnCode
-
-:group PaSampleFormat Values:
-  paFloat32, paInt32, paInt24, paInt16,
-  paInt8, paUInt8, paCustomFormat
-
-:group PaHostApiTypeId Values:
-  paInDevelopment, paDirectSound, paMME, paASIO,
-  paSoundManager, paCoreAudio, paOSS, paALSA
-  paAL, paBeOS, paWDMKS, paJACK, paWASAPI, paNoDevice
-
-:group PaErrorCode Values:
-  paNoError,
-  paNotInitialized, paUnanticipatedHostError,
-  paInvalidChannelCount, paInvalidSampleRate,
-  paInvalidDevice, paInvalidFlag,
-  paSampleFormatNotSupported, paBadIODeviceCombination,
-  paInsufficientMemory, paBufferTooBig,
-  paBufferTooSmall, paNullCallback,
-  paBadStreamPtr, paTimedOut,
-  paInternalError, paDeviceUnavailable,
-  paIncompatibleHostApiSpecificStreamInfo, paStreamIsStopped,
-  paStreamIsNotStopped, paInputOverflowed,
-  paOutputUnderflowed, paHostApiNotFound,
-  paInvalidHostApi, paCanNotReadFromACallbackStream,
-  paCanNotWriteToACallbackStream,
-  paCanNotReadFromAnOutputOnlyStream,
-  paCanNotWriteToAnInputOnlyStream,
-  paIncompatibleStreamHostApi
-
-:group PaCallbackReturnCode Values:
-    paContinue, paComplete, paAbort
-
-:group Stream Conversion Convenience Functions:
-  get_sample_size, get_format_from_width
-
-:group PortAudio version:
-  get_portaudio_version, get_portaudio_version_text
-
-:sort: PaSampleFormat, PaHostApiTypeId, PaErrorCode, PaCallbackReturnCode
-:sort: PortAudio Constants, PaSampleFormat Values,
-       PaHostApiTypeId Values, PaErrorCode Values
-
-</pre>
 
 <hr />
 <div class="fields">      <p><strong>Version:</strong>
@@ -151,7 +80,8 @@ PyAudio : Python Bindings for PortAudio v19.
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
         <a href="pyaudio.Stream-class.html" class="summary-name">Stream</a><br />
-      PortAudio Stream Wrapper.
+      PortAudio Stream Wrapper. Use <a href="pyaudio.PyAudio-class.html#open" class="link">PyAudio.open</a> to make a new
+<a href="pyaudio.Stream-class.html" class="link">Stream</a>.
     </td>
   </tr>
 <tr>
@@ -159,7 +89,7 @@ PyAudio : Python Bindings for PortAudio v19.
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
         <a href="pyaudio.PyAudio-class.html" class="summary-name">PyAudio</a><br />
-      Python interface to PortAudio.
+      initialize and terminate PortAudio
     </td>
   </tr>
 <tr>
@@ -169,7 +99,10 @@ PyAudio : Python Bindings for PortAudio v19.
         <a href="pyaudio.PaMacCoreStreamInfo-class.html" class="summary-name">PaMacCoreStreamInfo</a><br />
       Mac OS X-only: PaMacCoreStreamInfo is a PortAudio Host API
 Specific Stream Info data structure for specifying Mac OS
-X-only settings.
+X-only settings. Instantiate this class (if desired) and pass
+the instance as the argument in <a href="pyaudio.PyAudio-class.html#open" class="link">PyAudio.open</a> to parameters
+<tt class="rst-rst-docutils literal rst-docutils literal">input_host_api_specific_stream_info</tt> or
+<tt class="rst-rst-docutils literal rst-docutils literal">output_host_api_specific_stream_info</tt>. (See <a href="pyaudio.Stream-class.html#__init__" class="link">Stream.__init__</a>.)
     </td>
   </tr>
 </table>
@@ -181,15 +114,18 @@ X-only settings.
   <td align="left" colspan="2" class="table-header">
     <span class="table-header">Functions</span></td>
 </tr>
+<tr bgcolor="#e8f0f8" >
+  <th colspan="2" class="group-header"
+    >&nbsp;&nbsp;&nbsp;&nbsp;Stream Conversion Convenience Functions</th></tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type">int</span>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
           <td><span class="summary-sig"><a href="pyaudio-module.html#get_sample_size" class="summary-sig-name">get_sample_size</a>(<span class="summary-sig-arg">format</span>)</span><br />
       Returns the size (in bytes) for the specified
-sample `format` (a `PaSampleFormat` constant).</td>
+sample <code class="link">format</code> (a <a href="pyaudio-module.html#PaSampleFormat" class="link">PaSampleFormat</a> constant).</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="pyaudio-pysrc.html#get_sample_size">source&nbsp;code</a></span>
             
@@ -201,14 +137,14 @@ sample `format` (a `PaSampleFormat` constant).</td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type"><a href="pyaudio-module.html#PaSampleFormat" class="link">PaSampleFormat</a></span>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
           <td><span class="summary-sig"><a href="pyaudio-module.html#get_format_from_width" class="summary-sig-name">get_format_from_width</a>(<span class="summary-sig-arg">width</span>,
         <span class="summary-sig-arg">unsigned</span>=<span class="summary-sig-default">True</span>)</span><br />
       Returns a PortAudio format constant for
-the specified `width`.</td>
+the specified <code class="link">width</code>.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="pyaudio-pysrc.html#get_format_from_width">source&nbsp;code</a></span>
             
@@ -218,13 +154,16 @@ the specified `width`.</td>
       
     </td>
   </tr>
+<tr bgcolor="#e8f0f8" >
+  <th colspan="2" class="group-header"
+    >&nbsp;&nbsp;&nbsp;&nbsp;PortAudio version</th></tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type">str</span>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a href="pyaudio-module.html#get_portaudio_version" class="summary-sig-name">get_portaudio_version</a>()</span><br />
+          <td><span class="summary-sig"><a name="get_portaudio_version"></a><span class="summary-sig-name">get_portaudio_version</span>()</span><br />
       Returns portaudio version.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="pyaudio-pysrc.html#get_portaudio_version">source&nbsp;code</a></span>
@@ -237,11 +176,11 @@ the specified `width`.</td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type">str</span>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a href="pyaudio-module.html#get_portaudio_version_text" class="summary-sig-name">get_portaudio_version_text</a>()</span><br />
+          <td><span class="summary-sig"><a name="get_portaudio_version_text"></a><span class="summary-sig-name">get_portaudio_version_text</span>()</span><br />
       Returns PortAudio version as a text string.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="pyaudio-pysrc.html#get_portaudio_version_text">source&nbsp;code</a></span>
@@ -261,6 +200,87 @@ the specified `width`.</td>
   <td align="left" colspan="2" class="table-header">
     <span class="table-header">Variables</span></td>
 </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="__package__"></a><span class="summary-name">__package__</span> = <code title="None">None</code>
+    </td>
+  </tr>
+<tr bgcolor="#e8f0f8" >
+  <th colspan="2" class="group-header"
+    >&nbsp;&nbsp;&nbsp;&nbsp;PortAudio Constants</th></tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyaudio-module.html#PaSampleFormat" class="summary-name">PaSampleFormat</a> = <code title="['paFloat32',
+ 'paInt32',
+ 'paInt24',
+ 'paInt16',
+ 'paInt8',
+ 'paUInt8',
+ 'paCustomFormat']"><code class="variable-group">[</code><code class="variable-quote">'</code><code class="variable-string">paFloat32</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">paInt32</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">paInt24</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">paInt16</code><code class="variable-quote">'</code><code class="variable-ellipsis">...</code></code><br />
+      A list of all PortAudio <tt class="rst-docutils literal">PaSampleFormat</tt> value constants.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyaudio-module.html#PaHostApiTypeId" class="summary-name">PaHostApiTypeId</a> = <code title="['paInDevelopment',
+ 'paDirectSound',
+ 'paMME',
+ 'paASIO',
+ 'paSoundManager',
+ 'paCoreAudio',
+ 'paOSS',
+ 'paALSA',
+..."><code class="variable-group">[</code><code class="variable-quote">'</code><code class="variable-string">paInDevelopment</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">paDirectSound</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">paMME</code><code class="variable-quote">'</code><code class="variable-ellipsis">...</code></code><br />
+      A list of all PortAudio <tt class="rst-docutils literal">PaHostApiTypeId</tt> constants.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyaudio-module.html#PaErrorCode" class="summary-name">PaErrorCode</a> = <code title="['paNoError',
+ 'paNotInitialized',
+ 'paUnanticipatedHostError',
+ 'paInvalidChannelCount',
+ 'paInvalidSampleRate',
+ 'paInvalidDevice',
+ 'paInvalidFlag',
+ 'paSampleFormatNotSupported',
+..."><code class="variable-group">[</code><code class="variable-quote">'</code><code class="variable-string">paNoError</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">paNotInitialized</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">paUnanticipat</code><code class="variable-ellipsis">...</code></code><br />
+      A list of all PortAudio <tt class="rst-docutils literal">PaErrorCode</tt> constants.
+Typically, error code constants are included in Python
+exception objects (as the second argument).
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyaudio-module.html#PaCallbackReturnCode" class="summary-name">PaCallbackReturnCode</a> = <code title="['paContinue', 'paComplete', 'paAbort']"><code class="variable-group">[</code><code class="variable-quote">'</code><code class="variable-string">paContinue</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">paComplete</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">paAbort</code><code class="variable-quote">'</code><code class="variable-group">]</code></code><br />
+      A list of all PortAudio callback return codes.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="pyaudio-module.html#PaStreamCallbackFlags" class="summary-name">PaStreamCallbackFlags</a> = <code title="['paInputOverflow',
+ 'paInputUnderflow',
+ 'paOutputOverflow',
+ 'paOutputUnderflow',
+ 'paPrimingOutput']"><code class="variable-group">[</code><code class="variable-quote">'</code><code class="variable-string">paInputOverflow</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">paInputUnderflow</code><code class="variable-quote">'</code><code class="variable-ellipsis">...</code></code><br />
+      A list of all PortAudio callback flags.
+    </td>
+  </tr>
+<tr bgcolor="#e8f0f8" >
+  <th colspan="2" class="group-header"
+    >&nbsp;&nbsp;&nbsp;&nbsp;PaSampleFormat Values</th></tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
@@ -310,19 +330,9 @@ the specified `width`.</td>
         <a name="paCustomFormat"></a><span class="summary-name">paCustomFormat</span> = <code title="65536">65536</code>
     </td>
   </tr>
-<tr>
-    <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
-    </td><td class="summary">
-        <a href="pyaudio-module.html#PaSampleFormat" class="summary-name">PaSampleFormat</a> = <code title="['paFloat32',
- 'paInt32',
- 'paInt24',
- 'paInt16',
- 'paInt8',
- 'paUInt8',
- 'paCustomFormat']"><code class="variable-group">[</code><code class="variable-quote">'</code><code class="variable-string">paFloat32</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">paInt32</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">paInt24</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">paInt16</code><code class="variable-quote">'</code><code class="variable-ellipsis">...</code></code>
-    </td>
-  </tr>
+<tr bgcolor="#e8f0f8" >
+  <th colspan="2" class="group-header"
+    >&nbsp;&nbsp;&nbsp;&nbsp;PaHostApiTypeId Values</th></tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
@@ -421,21 +431,9 @@ the specified `width`.</td>
         <a name="paNoDevice"></a><span class="summary-name">paNoDevice</span> = <code title="-1">-1</code>
     </td>
   </tr>
-<tr>
-    <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
-    </td><td class="summary">
-        <a href="pyaudio-module.html#PaHostApiTypeId" class="summary-name">PaHostApiTypeId</a> = <code title="['paInDevelopment',
- 'paDirectSound',
- 'paMME',
- 'paASIO',
- 'paSoundManager',
- 'paCoreAudio',
- 'paOSS',
- 'paALSA',
-..."><code class="variable-group">[</code><code class="variable-quote">'</code><code class="variable-string">paInDevelopment</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">paDirectSound</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">paMME</code><code class="variable-quote">'</code><code class="variable-ellipsis">...</code></code>
-    </td>
-  </tr>
+<tr bgcolor="#e8f0f8" >
+  <th colspan="2" class="group-header"
+    >&nbsp;&nbsp;&nbsp;&nbsp;PaErrorCode Values</th></tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
@@ -639,21 +637,9 @@ the specified `width`.</td>
         <a name="paIncompatibleStreamHostApi"></a><span class="summary-name">paIncompatibleStreamHostApi</span> = <code title="-9973">-9973</code>
     </td>
   </tr>
-<tr>
-    <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
-    </td><td class="summary">
-        <a href="pyaudio-module.html#PaErrorCode" class="summary-name">PaErrorCode</a> = <code title="['paNoError',
- 'paNotInitialized',
- 'paUnanticipatedHostError',
- 'paInvalidChannelCount',
- 'paInvalidSampleRate',
- 'paInvalidDevice',
- 'paInvalidFlag',
- 'paSampleFormatNotSupported',
-..."><code class="variable-group">[</code><code class="variable-quote">'</code><code class="variable-string">paNoError</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">paNotInitialized</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">paUnanticipat</code><code class="variable-ellipsis">...</code></code>
-    </td>
-  </tr>
+<tr bgcolor="#e8f0f8" >
+  <th colspan="2" class="group-header"
+    >&nbsp;&nbsp;&nbsp;&nbsp;PaCallbackReturnCode Values</th></tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
@@ -675,13 +661,9 @@ the specified `width`.</td>
         <a name="paAbort"></a><span class="summary-name">paAbort</span> = <code title="2">2</code>
     </td>
   </tr>
-<tr>
-    <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
-    </td><td class="summary">
-        <a name="PaCallbackReturnCode"></a><span class="summary-name">PaCallbackReturnCode</span> = <code title="['paContinue', 'paComplete', 'paAbort']"><code class="variable-group">[</code><code class="variable-quote">'</code><code class="variable-string">paContinue</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">paComplete</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">paAbort</code><code class="variable-quote">'</code><code class="variable-group">]</code></code>
-    </td>
-  </tr>
+<tr bgcolor="#e8f0f8" >
+  <th colspan="2" class="group-header"
+    >&nbsp;&nbsp;&nbsp;&nbsp;PaStreamCallbackFlags Values</th></tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
@@ -717,24 +699,6 @@ the specified `width`.</td>
         <a name="paPrimingOutput"></a><span class="summary-name">paPrimingOutput</span> = <code title="16">16</code>
     </td>
   </tr>
-<tr>
-    <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
-    </td><td class="summary">
-        <a href="pyaudio-module.html#PaStreamCallbackFlags" class="summary-name">PaStreamCallbackFlags</a> = <code title="['paInputOverflow',
- 'paInputUnderflow',
- 'paOutputOverflow',
- 'paOutputUnderflow',
- 'paPrimingOutput']"><code class="variable-group">[</code><code class="variable-quote">'</code><code class="variable-string">paInputOverflow</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">paInputUnderflow</code><code class="variable-quote">'</code><code class="variable-ellipsis">...</code></code>
-    </td>
-  </tr>
-<tr>
-    <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
-    </td><td class="summary">
-        <a name="__package__"></a><span class="summary-name">__package__</span> = <code title="None">None</code>
-    </td>
-  </tr>
 </table>
 <!-- ==================== FUNCTION DETAILS ==================== -->
 <a name="section-FunctionDetails"></a>
@@ -759,20 +723,18 @@ the specified `width`.</td>
     </td>
   </tr></table>
   
-  <pre class="literalblock">
-
-Returns the size (in bytes) for the specified
-sample `format` (a `PaSampleFormat` constant).
-
-:param `format`:
-   PortAudio sample format constant `PaSampleFormat`.
-
-:raises ValueError: Invalid specified `format`.
-
-:rtype: int
-
-</pre>
+  Returns the size (in bytes) for the specified
+sample <code class="link">format</code> (a <a href="pyaudio-module.html#PaSampleFormat" class="link">PaSampleFormat</a> constant).
   <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>format</code></strong> - PortAudio sample format constant <a href="pyaudio-module.html#PaSampleFormat" class="link">PaSampleFormat</a>.</li>
+    </ul></dd>
+    <dt>Returns: int</dt>
+    <dt>Raises:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code><strong class='fraise'>ValueError</strong></code> - Invalid specified <code class="link">format</code>.</li>
+    </ul></dd>
   </dl>
 </td></tr></table>
 </div>
@@ -791,72 +753,20 @@ sample `format` (a `PaSampleFormat` constant).
     </td>
   </tr></table>
   
-  <pre class="literalblock">
-
-Returns a PortAudio format constant for
-the specified `width`.
-
-:param `width`:
-  The desired sample width in bytes (1, 2, 3, or 4)
-:param `unsigned`:
-  For 1 byte width, specifies signed or unsigned
-  format.
-
-:raises ValueError: for invalid `width`
-:rtype: `PaSampleFormat`
-
-</pre>
+  Returns a PortAudio format constant for
+the specified <code class="link">width</code>.
   <dl class="fields">
-  </dl>
-</td></tr></table>
-</div>
-<a name="get_portaudio_version"></a>
-<div>
-<table class="details" border="1" cellpadding="3"
-       cellspacing="0" width="100%" bgcolor="white">
-<tr><td>
-  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-  <tr valign="top"><td>
-  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_portaudio_version</span>()</span>
-  </h3>
-  </td><td align="right" valign="top"
-    ><span class="codelink"><a href="pyaudio-pysrc.html#get_portaudio_version">source&nbsp;code</a></span>&nbsp;
-    </td>
-  </tr></table>
-  
-  <pre class="literalblock">
-
-Returns portaudio version.
-
-:rtype: str 
-
-</pre>
-  <dl class="fields">
-  </dl>
-</td></tr></table>
-</div>
-<a name="get_portaudio_version_text"></a>
-<div>
-<table class="details" border="1" cellpadding="3"
-       cellspacing="0" width="100%" bgcolor="white">
-<tr><td>
-  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-  <tr valign="top"><td>
-  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_portaudio_version_text</span>()</span>
-  </h3>
-  </td><td align="right" valign="top"
-    ><span class="codelink"><a href="pyaudio-pysrc.html#get_portaudio_version_text">source&nbsp;code</a></span>&nbsp;
-    </td>
-  </tr></table>
-  
-  <pre class="literalblock">
-
-Returns PortAudio version as a text string.
-
-:rtype: str 
-
-</pre>
-  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>width</code></strong> - The desired sample width in bytes (1, 2, 3, or 4)</li>
+        <li><strong class="pname"><code>unsigned</code></strong> - For 1 byte width, specifies signed or unsigned
+format.</li>
+    </ul></dd>
+    <dt>Returns: <a href="pyaudio-module.html#PaSampleFormat" class="link">PaSampleFormat</a></dt>
+    <dt>Raises:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code><strong class='fraise'>ValueError</strong></code> - for invalid <code class="link">width</code></li>
+    </ul></dd>
   </dl>
 </td></tr></table>
 </div>
@@ -876,7 +786,8 @@ Returns PortAudio version as a text string.
        cellspacing="0" width="100%" bgcolor="white">
 <tr><td>
   <h3 class="epydoc">PaSampleFormat</h3>
-  
+  <p>A list of all PortAudio <tt class="rst-rst-docutils literal rst-docutils literal">PaSampleFormat</tt> value constants.</p>
+<p>See: <a href="pyaudio-module.html#paInt32" class="link">paInt32</a>, <a href="pyaudio-module.html#paInt24" class="link">paInt24</a>, <a href="pyaudio-module.html#paInt16" class="link">paInt16</a>, <a href="pyaudio-module.html#paInt8" class="link">paInt8</a>, and <a href="pyaudio-module.html#paUInt8" class="link">paUInt8</a>.</p>
   <dl class="fields">
   </dl>
   <dl class="fields">
@@ -900,7 +811,9 @@ Returns PortAudio version as a text string.
        cellspacing="0" width="100%" bgcolor="white">
 <tr><td>
   <h3 class="epydoc">PaHostApiTypeId</h3>
-  
+  <p>A list of all PortAudio <tt class="rst-rst-docutils literal rst-docutils literal">PaHostApiTypeId</tt> constants.</p>
+<p>See: <a href="pyaudio-module.html#paInDevelopment" class="link">paInDevelopment</a>, <a href="pyaudio-module.html#paDirectSound" class="link">paDirectSound</a>, <a href="pyaudio-module.html#paMME" class="link">paMME</a>, <a href="pyaudio-module.html#paASIO" class="link">paASIO</a>,
+<a href="pyaudio-module.html#paSoundManager" class="link">paSoundManager</a>, <a href="pyaudio-module.html#paCoreAudio" class="link">paCoreAudio</a>, <a href="pyaudio-module.html#paOSS" class="link">paOSS</a>, <a href="pyaudio-module.html#paALSA" class="link">paALSA</a>, <a href="pyaudio-module.html#paAL" class="link">paAL</a>, <em>et al...</em></p>
   <dl class="fields">
   </dl>
   <dl class="fields">
@@ -926,7 +839,11 @@ Returns PortAudio version as a text string.
        cellspacing="0" width="100%" bgcolor="white">
 <tr><td>
   <h3 class="epydoc">PaErrorCode</h3>
-  
+  <p>A list of all PortAudio <tt class="rst-rst-docutils literal rst-docutils literal">PaErrorCode</tt> constants.
+Typically, error code constants are included in Python
+exception objects (as the second argument).</p>
+<p>See: <a href="pyaudio-module.html#paNoError" class="link">paNoError</a>, <a href="pyaudio-module.html#paNotInitialized" class="link">paNotInitialized</a>, <a href="pyaudio-module.html#paUnanticipatedHostError" class="link">paUnanticipatedHostError</a>,
+<em>et al...</em></p>
   <dl class="fields">
   </dl>
   <dl class="fields">
@@ -946,13 +863,34 @@ Returns PortAudio version as a text string.
   </dl>
 </td></tr></table>
 </div>
+<a name="PaCallbackReturnCode"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">PaCallbackReturnCode</h3>
+  <p>A list of all PortAudio callback return codes.</p>
+<p>See: <a href="pyaudio-module.html#paContinue" class="link">paContinue</a>, <a href="pyaudio-module.html#paComplete" class="link">paComplete</a>, <a href="pyaudio-module.html#paAbort" class="link">paAbort</a></p>
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+<code class="variable-group">[</code><code class="variable-quote">'</code><code class="variable-string">paContinue</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">paComplete</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">paAbort</code><code class="variable-quote">'</code><code class="variable-group">]</code>
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
 <a name="PaStreamCallbackFlags"></a>
 <div>
 <table class="details" border="1" cellpadding="3"
        cellspacing="0" width="100%" bgcolor="white">
 <tr><td>
   <h3 class="epydoc">PaStreamCallbackFlags</h3>
-  
+  <p>A list of all PortAudio callback flags.</p>
+<p>See: <a href="pyaudio-module.html#paInputOverflow" class="link">paInputOverflow</a>, <a href="pyaudio-module.html#paInputUnderflow" class="link">paInputUnderflow</a>, <a href="pyaudio-module.html#paOutputOverflow" class="link">paOutputOverflow</a>,
+<a href="pyaudio-module.html#paOutputUnderflow" class="link">paOutputUnderflow</a>, <a href="pyaudio-module.html#paPrimingOutput" class="link">paPrimingOutput</a></p>
   <dl class="fields">
   </dl>
   <dl class="fields">
@@ -1000,7 +938,7 @@ Returns PortAudio version as a text string.
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Mon Aug 27 16:55:23 2012
+    Generated by Epydoc 3.0.1 on Tue Aug 28 11:26:33 2012
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"

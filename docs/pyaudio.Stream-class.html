@@ -59,24 +59,8 @@
 </table>
 <!-- ==================== CLASS DESCRIPTION ==================== -->
 <h1 class="epydoc">Class Stream</h1><p class="nomargin-top"><span class="codelink"><a href="pyaudio-pysrc.html#Stream">source&nbsp;code</a></span></p>
-<pre class="literalblock">
-
-PortAudio Stream Wrapper. Use `PyAudio.open` to make a new
-`Stream`.
-
-:group Opening and Closing:
-  __init__, close
-
-:group Stream Info:
-  get_input_latency, get_output_latency, get_time, get_cpu_load
-
-:group Stream Management:
-  start_stream, stop_stream, is_active, is_stopped
-
-:group Input Output:
-  write, read, get_read_available, get_write_available
-
-</pre>
+PortAudio Stream Wrapper. Use <a href="pyaudio.PyAudio-class.html#open" class="link">PyAudio.open</a> to make a new
+<a href="pyaudio.Stream-class.html" class="link">Stream</a>.
 
 <!-- ==================== INSTANCE METHODS ==================== -->
 <a name="section-InstanceMethods"></a>
@@ -86,6 +70,9 @@ PortAudio Stream Wrapper. Use `PyAudio.open` to make a new
   <td align="left" colspan="2" class="table-header">
     <span class="table-header">Instance Methods</span></td>
 </tr>
+<tr bgcolor="#e8f0f8" >
+  <th colspan="2" class="group-header"
+    >&nbsp;&nbsp;&nbsp;&nbsp;Opening and Closing</th></tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
@@ -107,7 +94,7 @@ PortAudio Stream Wrapper. Use `PyAudio.open` to make a new
         <span class="summary-sig-arg">output_host_api_specific_stream_info</span>=<span class="summary-sig-default">None</span>,
         <span class="summary-sig-arg">stream_callback</span>=<span class="summary-sig-default">None</span>)</span><br />
       Initialize a stream; this should be called by
-`PyAudio.open`.</td>
+<a href="pyaudio.PyAudio-class.html#open" class="link">PyAudio.open</a>. A stream can either be input, output, or both.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="pyaudio-pysrc.html#Stream.__init__">source&nbsp;code</a></span>
             
@@ -134,13 +121,16 @@ PortAudio Stream Wrapper. Use `PyAudio.open` to make a new
       
     </td>
   </tr>
+<tr bgcolor="#e8f0f8" >
+  <th colspan="2" class="group-header"
+    >&nbsp;&nbsp;&nbsp;&nbsp;Stream Info</th></tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type">float</span>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a href="pyaudio.Stream-class.html#get_input_latency" class="summary-sig-name">get_input_latency</a>(<span class="summary-sig-arg">self</span>)</span><br />
+          <td><span class="summary-sig"><a name="get_input_latency"></a><span class="summary-sig-name">get_input_latency</span>(<span class="summary-sig-arg">self</span>)</span><br />
       Return the input latency.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="pyaudio-pysrc.html#Stream.get_input_latency">source&nbsp;code</a></span>
@@ -153,11 +143,11 @@ PortAudio Stream Wrapper. Use `PyAudio.open` to make a new
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type">float</span>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a href="pyaudio.Stream-class.html#get_output_latency" class="summary-sig-name">get_output_latency</a>(<span class="summary-sig-arg">self</span>)</span><br />
+          <td><span class="summary-sig"><a name="get_output_latency"></a><span class="summary-sig-name">get_output_latency</span>(<span class="summary-sig-arg">self</span>)</span><br />
       Return the input latency.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="pyaudio-pysrc.html#Stream.get_output_latency">source&nbsp;code</a></span>
@@ -170,11 +160,11 @@ PortAudio Stream Wrapper. Use `PyAudio.open` to make a new
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type">float</span>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a href="pyaudio.Stream-class.html#get_time" class="summary-sig-name">get_time</a>(<span class="summary-sig-arg">self</span>)</span><br />
+          <td><span class="summary-sig"><a name="get_time"></a><span class="summary-sig-name">get_time</span>(<span class="summary-sig-arg">self</span>)</span><br />
       Return stream time.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="pyaudio-pysrc.html#Stream.get_time">source&nbsp;code</a></span>
@@ -187,7 +177,7 @@ PortAudio Stream Wrapper. Use `PyAudio.open` to make a new
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type">float</span>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
@@ -202,6 +192,9 @@ PortAudio Stream Wrapper. Use `PyAudio.open` to make a new
       
     </td>
   </tr>
+<tr bgcolor="#e8f0f8" >
+  <th colspan="2" class="group-header"
+    >&nbsp;&nbsp;&nbsp;&nbsp;Stream Management</th></tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
@@ -225,8 +218,10 @@ PortAudio Stream Wrapper. Use `PyAudio.open` to make a new
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a href="pyaudio.Stream-class.html#stop_stream" class="summary-sig-name">stop_stream</a>(<span class="summary-sig-arg">self</span>)</span><br />
-      Stop the stream.</td>
+          <td><span class="summary-sig"><a name="stop_stream"></a><span class="summary-sig-name">stop_stream</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Stop the stream. Once the stream is stopped,
+one may not call write or read. However, one may
+call start_stream to resume the stream.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="pyaudio-pysrc.html#Stream.stop_stream">source&nbsp;code</a></span>
             
@@ -238,11 +233,11 @@ PortAudio Stream Wrapper. Use `PyAudio.open` to make a new
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type">bool</span>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a href="pyaudio.Stream-class.html#is_active" class="summary-sig-name">is_active</a>(<span class="summary-sig-arg">self</span>)</span><br />
+          <td><span class="summary-sig"><a name="is_active"></a><span class="summary-sig-name">is_active</span>(<span class="summary-sig-arg">self</span>)</span><br />
       Returns whether the stream is active.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="pyaudio-pysrc.html#Stream.is_active">source&nbsp;code</a></span>
@@ -255,11 +250,11 @@ PortAudio Stream Wrapper. Use `PyAudio.open` to make a new
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type">bool</span>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a href="pyaudio.Stream-class.html#is_stopped" class="summary-sig-name">is_stopped</a>(<span class="summary-sig-arg">self</span>)</span><br />
+          <td><span class="summary-sig"><a name="is_stopped"></a><span class="summary-sig-name">is_stopped</span>(<span class="summary-sig-arg">self</span>)</span><br />
       Returns whether the stream is stopped.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="pyaudio-pysrc.html#Stream.is_stopped">source&nbsp;code</a></span>
@@ -270,9 +265,12 @@ PortAudio Stream Wrapper. Use `PyAudio.open` to make a new
       
     </td>
   </tr>
+<tr bgcolor="#e8f0f8" >
+  <th colspan="2" class="group-header"
+    >&nbsp;&nbsp;&nbsp;&nbsp;Input Output</th></tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type"><code class="link">None</code></span>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
@@ -292,7 +290,7 @@ PortAudio Stream Wrapper. Use `PyAudio.open` to make a new
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type">str</span>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
@@ -310,11 +308,11 @@ PortAudio Stream Wrapper. Use `PyAudio.open` to make a new
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type">int</span>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a href="pyaudio.Stream-class.html#get_read_available" class="summary-sig-name">get_read_available</a>(<span class="summary-sig-arg">self</span>)</span><br />
+          <td><span class="summary-sig"><a name="get_read_available"></a><span class="summary-sig-name">get_read_available</span>(<span class="summary-sig-arg">self</span>)</span><br />
       Return the number of frames that can be read
 without waiting.</td>
           <td align="right" valign="top">
@@ -328,11 +326,11 @@ without waiting.</td>
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type">int</span>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a href="pyaudio.Stream-class.html#get_write_available" class="summary-sig-name">get_write_available</a>(<span class="summary-sig-arg">self</span>)</span><br />
+          <td><span class="summary-sig"><a name="get_write_available"></a><span class="summary-sig-name">get_write_available</span>(<span class="summary-sig-arg">self</span>)</span><br />
       Return the number of frames that can be written
 without waiting.</td>
           <td align="right" valign="top">
@@ -382,146 +380,63 @@ without waiting.</td>
     </td>
   </tr></table>
   
-  <pre class="literalblock">
-
-Initialize a stream; this should be called by
-`PyAudio.open`. A stream can either be input, output, or both.
-
-
-:param `PA_manager`: A reference to the managing `PyAudio` instance.
-:param `rate`: Sampling rate.
-:param `channels`: Number of channels.
-:param `format`: Sampling size and format. See `PaSampleFormat`.
-:param `input`: Specifies whether this is an input stream.
-    Defaults to False.
-:param `output`: Specifies whether this is an output stream.
-    Defaults to False.
-:param `input_device_index`: Index of Input Device to use.
-    Unspecified (or None) uses default device.
-    Ignored if `input` is False.
-:param `output_device_index`:
-    Index of Output Device to use.
-    Unspecified (or None) uses the default device.
-    Ignored if `output` is False.
-:param `frames_per_buffer`: Specifies the number of frames per buffer.
-:param `start`: Start the stream running immediately.
-    Defaults to True. In general, there is no reason to set
-    this to false.
-:param `input_host_api_specific_stream_info`: Specifies a host API
-    specific stream information data structure for input.
-    See `PaMacCoreStreamInfo`.
-:param `output_host_api_specific_stream_info`: Specifies a host API
-    specific stream information data structure for output.
-    See `PaMacCoreStreamInfo`.
-:param `stream_callback`: Specifies a callback function.
-    The callback function must conform to the following signature:
-    ``callback(in_data, frame_count, time_info, flags)``
-
-    The function will be called whenever PyAudio needs new audio data to
-    play or has new data available from its inputs.
-
-    ``in_data`` contains the input data (if available).
-
-    ``frame_count`` is the number of frames available/required.
-
-    ``time_info`` is a dictionary containing the current time, the time
-    the ADC recorded the last sample, and the time the ADC will output
-    the first sample.
-
-    ``flags`` contains a bitwise and of some callback error flags. These
-    are ``paInputOverflow``, ``paInputUnderflow``, ``paOutputOverflow``,
-    ``paOutputUnderflow``, and ``paPrimingOutput``.
-
-    The function must return either a tuple containing the frames to
-    play and a status flag or just the audio data.
-    If given a tuple, the flag can be either `paContinue` (normal
-    playback/recording), `paComplete` (stop playing/recording after
-    this block) or `paAbort` (error).
-    If given just the audio data, returning an exactly the right number
-    of frames implies ``paContinue``, while returning less than the right
-    number of frames implies ``paComplete``. Returning nothing implies
-    ``paError``.
-
-:raise ValueError: Neither input nor output
- are set True.
-
-</pre>
+  Initialize a stream; this should be called by
+<a href="pyaudio.PyAudio-class.html#open" class="link">PyAudio.open</a>. A stream can either be input, output, or both.
   <dl class="fields">
-  </dl>
-</td></tr></table>
-</div>
-<a name="get_input_latency"></a>
-<div>
-<table class="details" border="1" cellpadding="3"
-       cellspacing="0" width="100%" bgcolor="white">
-<tr><td>
-  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-  <tr valign="top"><td>
-  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_input_latency</span>(<span class="sig-arg">self</span>)</span>
-  </h3>
-  </td><td align="right" valign="top"
-    ><span class="codelink"><a href="pyaudio-pysrc.html#Stream.get_input_latency">source&nbsp;code</a></span>&nbsp;
-    </td>
-  </tr></table>
-  
-  <pre class="literalblock">
-
-Return the input latency.
-
-:rtype: float
-
-</pre>
-  <dl class="fields">
-  </dl>
-</td></tr></table>
-</div>
-<a name="get_output_latency"></a>
-<div>
-<table class="details" border="1" cellpadding="3"
-       cellspacing="0" width="100%" bgcolor="white">
-<tr><td>
-  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-  <tr valign="top"><td>
-  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_output_latency</span>(<span class="sig-arg">self</span>)</span>
-  </h3>
-  </td><td align="right" valign="top"
-    ><span class="codelink"><a href="pyaudio-pysrc.html#Stream.get_output_latency">source&nbsp;code</a></span>&nbsp;
-    </td>
-  </tr></table>
-  
-  <pre class="literalblock">
-
-Return the input latency.
-
-:rtype: float
-
-</pre>
-  <dl class="fields">
-  </dl>
-</td></tr></table>
-</div>
-<a name="get_time"></a>
-<div>
-<table class="details" border="1" cellpadding="3"
-       cellspacing="0" width="100%" bgcolor="white">
-<tr><td>
-  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-  <tr valign="top"><td>
-  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_time</span>(<span class="sig-arg">self</span>)</span>
-  </h3>
-  </td><td align="right" valign="top"
-    ><span class="codelink"><a href="pyaudio-pysrc.html#Stream.get_time">source&nbsp;code</a></span>&nbsp;
-    </td>
-  </tr></table>
-  
-  <pre class="literalblock">
-
-Return stream time.
-
-:rtype: float
-
-</pre>
-  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>PA_manager</code></strong> - A reference to the managing <a href="pyaudio.PyAudio-class.html" class="link">PyAudio</a> instance.</li>
+        <li><strong class="pname"><code>rate</code></strong> - Sampling rate.</li>
+        <li><strong class="pname"><code>channels</code></strong> - Number of channels.</li>
+        <li><strong class="pname"><code>format</code></strong> - Sampling size and format. See <a href="pyaudio-module.html#PaSampleFormat" class="link">PaSampleFormat</a>.</li>
+        <li><strong class="pname"><code>input</code></strong> - Specifies whether this is an input stream.
+Defaults to False.</li>
+        <li><strong class="pname"><code>output</code></strong> - Specifies whether this is an output stream.
+Defaults to False.</li>
+        <li><strong class="pname"><code>input_device_index</code></strong> - Index of Input Device to use.
+Unspecified (or None) uses default device.
+Ignored if <code class="link">input</code> is False.</li>
+        <li><strong class="pname"><code>output_device_index</code></strong> - Index of Output Device to use.
+Unspecified (or None) uses the default device.
+Ignored if <code class="link">output</code> is False.</li>
+        <li><strong class="pname"><code>frames_per_buffer</code></strong> - Specifies the number of frames per buffer.</li>
+        <li><strong class="pname"><code>start</code></strong> - Start the stream running immediately.
+Defaults to True. In general, there is no reason to set
+this to false.</li>
+        <li><strong class="pname"><code>input_host_api_specific_stream_info</code></strong> - Specifies a host API
+specific stream information data structure for input.
+See <a href="pyaudio.PaMacCoreStreamInfo-class.html" class="link">PaMacCoreStreamInfo</a>.</li>
+        <li><strong class="pname"><code>output_host_api_specific_stream_info</code></strong> - Specifies a host API
+specific stream information data structure for output.
+See <a href="pyaudio.PaMacCoreStreamInfo-class.html" class="link">PaMacCoreStreamInfo</a>.</li>
+        <li><p><strong class="pname"><code>stream_callback</code></strong> - Specifies a callback function.
+The callback function must conform to the following signature:
+<tt class="rst-docutils literal">callback(in_data, frame_count, time_info, flags)</tt></p>
+<p>The function will be called whenever PyAudio needs new audio data to
+play or has new data available from its inputs.</p>
+<p><tt class="rst-docutils literal">in_data</tt> contains the input data (if available).</p>
+<p><tt class="rst-docutils literal">frame_count</tt> is the number of frames available/required.</p>
+<p><tt class="rst-docutils literal">time_info</tt> is a dictionary containing the current time, the time
+the ADC recorded the last sample, and the time the ADC will output
+the first sample.</p>
+<p><tt class="rst-docutils literal">flags</tt> contains a bitwise and of some callback error flags. These
+are <tt class="rst-docutils literal">paInputOverflow</tt>, <tt class="rst-docutils literal">paInputUnderflow</tt>, <tt class="rst-docutils literal">paOutputOverflow</tt>,
+<tt class="rst-docutils literal">paOutputUnderflow</tt>, and <tt class="rst-docutils literal">paPrimingOutput</tt>.</p>
+<p>The function must return either a tuple containing the frames to
+play and a status flag or just the audio data.
+If given a tuple, the flag can be either <a href="pyaudio-module.html#paContinue" class="link">paContinue</a> (normal
+playback/recording), <a href="pyaudio-module.html#paComplete" class="link">paComplete</a> (stop playing/recording after
+this block) or <a href="pyaudio-module.html#paAbort" class="link">paAbort</a> (error).
+If given just the audio data, returning an exactly the right number
+of frames implies <tt class="rst-docutils literal">paContinue</tt>, while returning less than the right
+number of frames implies <tt class="rst-docutils literal">paComplete</tt>. Returning nothing implies
+<tt class="rst-docutils literal">paError</tt>.</p></li>
+    </ul></dd>
+    <dt>Raises:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code><strong class='fraise'>ValueError</strong></code> - Neither input nor output
+are set True.</li>
+    </ul></dd>
   </dl>
 </td></tr></table>
 </div>
@@ -539,88 +454,10 @@ Return stream time.
     </td>
   </tr></table>
   
-  <pre class="literalblock">
-
-Return the CPU load.
-
-(Note: this is always 0.0 for the blocking API.)
-
-:rtype: float
-
-</pre>
+  <p>Return the CPU load.</p>
+<p>(Note: this is always 0.0 for the blocking API.)</p>
   <dl class="fields">
-  </dl>
-</td></tr></table>
-</div>
-<a name="stop_stream"></a>
-<div>
-<table class="details" border="1" cellpadding="3"
-       cellspacing="0" width="100%" bgcolor="white">
-<tr><td>
-  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-  <tr valign="top"><td>
-  <h3 class="epydoc"><span class="sig"><span class="sig-name">stop_stream</span>(<span class="sig-arg">self</span>)</span>
-  </h3>
-  </td><td align="right" valign="top"
-    ><span class="codelink"><a href="pyaudio-pysrc.html#Stream.stop_stream">source&nbsp;code</a></span>&nbsp;
-    </td>
-  </tr></table>
-  
-  <pre class="literalblock">
-Stop the stream. Once the stream is stopped,
-one may not call write or read. However, one may
-call start_stream to resume the stream. 
-
-</pre>
-  <dl class="fields">
-  </dl>
-</td></tr></table>
-</div>
-<a name="is_active"></a>
-<div>
-<table class="details" border="1" cellpadding="3"
-       cellspacing="0" width="100%" bgcolor="white">
-<tr><td>
-  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-  <tr valign="top"><td>
-  <h3 class="epydoc"><span class="sig"><span class="sig-name">is_active</span>(<span class="sig-arg">self</span>)</span>
-  </h3>
-  </td><td align="right" valign="top"
-    ><span class="codelink"><a href="pyaudio-pysrc.html#Stream.is_active">source&nbsp;code</a></span>&nbsp;
-    </td>
-  </tr></table>
-  
-  <pre class="literalblock">
-Returns whether the stream is active.
-
-:rtype: bool 
-
-</pre>
-  <dl class="fields">
-  </dl>
-</td></tr></table>
-</div>
-<a name="is_stopped"></a>
-<div>
-<table class="details" border="1" cellpadding="3"
-       cellspacing="0" width="100%" bgcolor="white">
-<tr><td>
-  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-  <tr valign="top"><td>
-  <h3 class="epydoc"><span class="sig"><span class="sig-name">is_stopped</span>(<span class="sig-arg">self</span>)</span>
-  </h3>
-  </td><td align="right" valign="top"
-    ><span class="codelink"><a href="pyaudio-pysrc.html#Stream.is_stopped">source&nbsp;code</a></span>&nbsp;
-    </td>
-  </tr></table>
-  
-  <pre class="literalblock">
-Returns whether the stream is stopped.
-
-:rtype: bool 
-
-</pre>
-  <dl class="fields">
+    <dt>Returns: float</dt>
   </dl>
 </td></tr></table>
 </div>
@@ -641,30 +478,25 @@ Returns whether the stream is stopped.
     </td>
   </tr></table>
   
-  <pre class="literalblock">
-
-Write samples to the stream.
-
-
-:param `frames`:
-   The frames of data.
-:param `num_frames`:
-   The number of frames to write.
-   Defaults to None, in which this value will be
-   automatically computed.
-:param `exception_on_underflow`:
-   Specifies whether an exception should be thrown
-   (or silently ignored) on buffer underflow. Defaults
-   to False for improved performance, especially on
-   slower platforms.
-
-:raises IOError: if the stream is not an output stream
- or if the write operation was unsuccessful.
-
-:rtype: `None`
-
-</pre>
+  Write samples to the stream.
   <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>frames</code></strong> - The frames of data.</li>
+        <li><strong class="pname"><code>num_frames</code></strong> - The number of frames to write.
+Defaults to None, in which this value will be
+automatically computed.</li>
+        <li><strong class="pname"><code>exception_on_underflow</code></strong> - Specifies whether an exception should be thrown
+(or silently ignored) on buffer underflow. Defaults
+to False for improved performance, especially on
+slower platforms.</li>
+    </ul></dd>
+    <dt>Returns: <code class="link">None</code></dt>
+    <dt>Raises:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code><strong class='fraise'>IOError</strong></code> - if the stream is not an output stream
+or if the write operation was unsuccessful.</li>
+    </ul></dd>
   </dl>
 </td></tr></table>
 </div>
@@ -683,73 +515,18 @@ Write samples to the stream.
     </td>
   </tr></table>
   
-  <pre class="literalblock">
-
-Read samples from the stream.
-
-
-:param `num_frames`:
-   The number of frames to read.
-
-:raises IOError: if stream is not an input stream
- or if the read operation was unsuccessful.
-
-:rtype: str
-
-</pre>
+  Read samples from the stream.
   <dl class="fields">
-  </dl>
-</td></tr></table>
-</div>
-<a name="get_read_available"></a>
-<div>
-<table class="details" border="1" cellpadding="3"
-       cellspacing="0" width="100%" bgcolor="white">
-<tr><td>
-  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-  <tr valign="top"><td>
-  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_read_available</span>(<span class="sig-arg">self</span>)</span>
-  </h3>
-  </td><td align="right" valign="top"
-    ><span class="codelink"><a href="pyaudio-pysrc.html#Stream.get_read_available">source&nbsp;code</a></span>&nbsp;
-    </td>
-  </tr></table>
-  
-  <pre class="literalblock">
-
-Return the number of frames that can be read
-without waiting.
-
-:rtype: int
-
-</pre>
-  <dl class="fields">
-  </dl>
-</td></tr></table>
-</div>
-<a name="get_write_available"></a>
-<div>
-<table class="details" border="1" cellpadding="3"
-       cellspacing="0" width="100%" bgcolor="white">
-<tr><td>
-  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-  <tr valign="top"><td>
-  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_write_available</span>(<span class="sig-arg">self</span>)</span>
-  </h3>
-  </td><td align="right" valign="top"
-    ><span class="codelink"><a href="pyaudio-pysrc.html#Stream.get_write_available">source&nbsp;code</a></span>&nbsp;
-    </td>
-  </tr></table>
-  
-  <pre class="literalblock">
-
-Return the number of frames that can be written
-without waiting.
-
-:rtype: int
-
-</pre>
-  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>num_frames</code></strong> - The number of frames to read.</li>
+    </ul></dd>
+    <dt>Returns: str</dt>
+    <dt>Raises:</dt>
+    <dd><ul class="nomargin-top">
+        <li><code><strong class='fraise'>IOError</strong></code> - if stream is not an input stream
+or if the read operation was unsuccessful.</li>
+    </ul></dd>
   </dl>
 </td></tr></table>
 </div>
@@ -785,7 +562,7 @@ without waiting.
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Mon Aug 27 16:55:23 2012
+    Generated by Epydoc 3.0.1 on Tue Aug 28 11:26:33 2012
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"

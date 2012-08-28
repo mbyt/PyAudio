@@ -48,8 +48,15 @@
 
     See: `paContinue`, `paComplete`, `paAbort`
 
+:var PaStreamCallbackFlags:
+    A list of all PortAudio callback flags.
+
+    See: `paInputOverflow`, `paInputUnderflow`, `paOutputOverflow`,
+    `paOutputUnderflow`, `paPrimingOutput`
+
 :group PortAudio Constants:
-  PaSampleFormat, PaHostApiTypeId, PaErrorCode, PaCallbackReturnCode
+  PaSampleFormat, PaHostApiTypeId, PaErrorCode, PaCallbackReturnCode,
+  PaStreamCallbackFlags
 
 :group PaSampleFormat Values:
   paFloat32, paInt32, paInt24, paInt16,
@@ -82,13 +89,18 @@
 :group PaCallbackReturnCode Values:
     paContinue, paComplete, paAbort
 
+:group PaStreamCallbackFlags Values:
+    paInputOverflow, paInputUnderflow, paOutputOverflow, paOutputUnderflow,
+    paPrimingOutput
+
 :group Stream Conversion Convenience Functions:
   get_sample_size, get_format_from_width
 
 :group PortAudio version:
   get_portaudio_version, get_portaudio_version_text
 
-:sort: PaSampleFormat, PaHostApiTypeId, PaErrorCode, PaCallbackReturnCode
+:sort: PaSampleFormat, PaHostApiTypeId, PaErrorCode, PaCallbackReturnCode,
+       PaStreamCallbackFlags
 :sort: PortAudio Constants, PaSampleFormat Values,
        PaHostApiTypeId Values, PaErrorCode Values
 
