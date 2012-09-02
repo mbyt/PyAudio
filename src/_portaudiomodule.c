@@ -693,6 +693,7 @@ _pyAudio_MacOSX_hostApiSpecificStreamInfo_cleanup(_pyAudio_Mac_HASSI *self)
 
   if (self->channelMap != NULL) {
     free(self->channelMap);
+    self->channelMap = NULL;
   }
 
   self->flags = paMacCorePlayNice;
@@ -756,15 +757,18 @@ _pyAudio_MacOSX_hostApiSpecificStreamInfo_init(PyObject *_self,
       }
 
       // make sure element is an integer
-      if (!PyLong_Check(element)) {
+      if (!PyNumber_Check(element)) {
 	PyErr_SetString(PyExc_ValueError,
 			"Channel Map must consist of integer elements");
 	_pyAudio_MacOSX_hostApiSpecificStreamInfo_cleanup(self);
 	return -1;
       }
 
+      PyObject *long_element = PyNumber_Long(element);
+
       // OK, looks good
-      self->channelMap[i] = (SInt32) PyLong_AsLong(element);
+      self->channelMap[i] = (SInt32) PyLong_AsLong(long_element);
+      Py_DECREF(long_element);
     }
   }
 
@@ -1718,14 +1722,18 @@ pa_open(PyObject *self, PyObject *args, PyObject *kwargs)
     input_device_index = -1;
 
   } else {
-
-    if (!PyLong_Check(input_device_index_arg)) {
+	// Support both Python 2 and Python 3 by using PyNumber_Check
+    if (!PyNumber_Check(input_device_index_arg)) {
       PyErr_SetString(PyExc_ValueError,
 		      "input_device_index must be integer (or None)");
       return NULL;
     }
 
-    input_device_index = (int)PyLong_AsLong(input_device_index_arg);
+    PyObject *input_device_index_long =
+      PyNumber_Long(input_device_index_arg);
+
+    input_device_index = (int) PyLong_AsLong(input_device_index_long);
+    Py_DECREF(input_device_index_long);
 
 #ifdef VERBOSE
     printf("Using input device index number: %d\n", input_device_index);
@@ -1743,14 +1751,17 @@ pa_open(PyObject *self, PyObject *args, PyObject *kwargs)
     output_device_index = -1;
 
   } else {
-
-    if (!PyLong_Check(output_device_index_arg)) {
+    // Support both Python 2 and Python 3 by using PyNumber_Check
+    if (!PyNumber_Check(output_device_index_arg)) {
       PyErr_SetString(PyExc_ValueError,
 		      "output_device_index must be integer (or None)");
       return NULL;
     }
 
-    output_device_index = (int)PyLong_AsLong(output_device_index_arg);
+    PyObject *output_device_index_long =
+      PyNumber_Long(output_device_index_arg);
+    output_device_index = (int) PyLong_AsLong(output_device_index_long);
+    Py_DECREF(output_device_index_long);
 
 #ifdef VERBOSE
     printf("Using output device index number: %d\n", output_device_index);
@@ -2532,37 +2543,23 @@ pa_get_stream_read_available(PyObject *self, PyObject *args)
 #endif
 
 #if PY_MAJOR_VERSION >= 3
-
-struct module_state {
-	PyObject *error;
-};
-
-static int paTraverse(PyObject *m, visitproc visit, void *arg) {
-	Py_VISIT(((struct module_state*)PyModule_GetState(m))->error);
-	return 0;
-}
-
-static int paClear(PyObject *m) {
-	Py_CLEAR(((struct module_state*)PyModule_GetState(m))->error);
-	return 0;
-}
-
 static struct PyModuleDef moduledef = {
-	PyModuleDef_HEAD_INIT,
-	"_portaudio",
-	NULL,
-	sizeof(struct module_state),
-	paMethods,
-	NULL,
-	paTraverse,
-	paClear,
-	NULL
+  PyModuleDef_HEAD_INIT,
+  "_portaudio",
+  NULL,
+  -1,
+  paMethods,
+  NULL,
+  NULL,
+  NULL,
+  NULL
 };
+#endif
 
-PyObject *
+PyMODINIT_FUNC
+#if PY_MAJOR_VERSION >= 3
 PyInit__portaudio(void)
 #else
-PyMODINIT_FUNC
 init_portaudio(void)
 #endif
 {
