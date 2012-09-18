@@ -14,9 +14,10 @@ if len(sys.argv) < 2:
 
 wf = wave.open(sys.argv[1], 'rb')
 
+# instantiate PyAudio (1)
 p = PyAudio()
 
-# open stream
+# open stream (2)
 stream = p.open(format =
                 p.get_format_from_width(wf.getsampwidth()),
                 channels = wf.getnchannels(),
@@ -26,12 +27,14 @@ stream = p.open(format =
 # read data
 data = wf.readframes(chunk)
 
-# play stream
+# play stream (3)
 while data != '':
     stream.write(data)
     data = wf.readframes(chunk)
 
+# stop stream (4)
 stream.stop_stream()
 stream.close()
 
+# close PyAudio (5)
 p.terminate()

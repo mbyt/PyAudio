@@ -1,5 +1,5 @@
 """
-PyAudio v0.2.7: Python Bindings for PortAudio.
+PyAudio v0.2.X: Python Bindings for PortAudio.
 
 Copyright (c) 2006-2010 Hubert Pham
 
@@ -30,7 +30,7 @@ from distutils.core import setup, Extension
 import sys
 import os
 
-__version__ = "0.2.7"
+__version__ = "0.2.X"
 
 # Note: distutils will try to locate and link dynamically
 #       against portaudio.
@@ -53,6 +53,7 @@ if "--static-link" in sys.argv:
     sys.argv.remove("--static-link")
 
 portaudio_path = os.environ.get("PORTAUDIO_PATH", "./portaudio-v19")
+mac_sysroot_path = os.environ.get("SYSROOT_PATH", None)
 
 pyaudio_module_sources = ['src/_portaudiomodule.c']
 
@@ -74,7 +75,14 @@ else:
     extra_link_args = []
 
 if sys.platform == 'darwin':
-    defines += [('MACOSX', '1'),('DEBUG','1')]
+    defines += [('MACOSX', '1')]
+
+    extra_compile_args += ["-mmacosx-version-min=10.6"]
+    extra_link_args += ["-mmacosx-version-min=10.6"]
+
+    if mac_sysroot_path:
+        extra_compile_args += ["-isysroot", mac_sysroot_path]
+        extra_link_args += ["-isysroot", mac_sysroot_path]
 
 if STATIC_LINKING:
 
