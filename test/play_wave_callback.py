@@ -1,4 +1,6 @@
-""" PyAudio Example: Play a wave file (callback version) """
+"""
+PyAudio Example: Play a wave file (callback version)
+"""
 
 import pyaudio
 import wave
@@ -20,12 +22,11 @@ def callback(in_data, frame_count, time_info, status):
     return (data, pyaudio.paContinue)
 
 # open stream using callback (3)
-stream = p.open(format =
-                p.get_format_from_width(wf.getsampwidth()),
-                channels = wf.getnchannels(),
-                rate = wf.getframerate(),
-                output = True,
-                stream_callback = callback)
+stream = p.open(format=p.get_format_from_width(wf.getsampwidth()),
+                channels=wf.getnchannels(),
+                rate=wf.getframerate(),
+                output=True,
+                stream_callback=callback)
 
 # start the stream (4)
 stream.start_stream()
