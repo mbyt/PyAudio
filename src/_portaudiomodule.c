@@ -1722,7 +1722,7 @@ pa_open(PyObject *self, PyObject *args, PyObject *kwargs)
     input_device_index = -1;
 
   } else {
-	// Support both Python 2 and Python 3 by using PyNumber_Check
+    // Support both Python 2 and Python 3 by using PyNumber_Check
     if (!PyNumber_Check(input_device_index_arg)) {
       PyErr_SetString(PyExc_ValueError,
 		      "input_device_index must be integer (or None)");
@@ -1738,7 +1738,6 @@ pa_open(PyObject *self, PyObject *args, PyObject *kwargs)
 #ifdef VERBOSE
     printf("Using input device index number: %d\n", input_device_index);
 #endif
-
   }
 
   if ((output_device_index_arg == NULL) ||
@@ -1766,7 +1765,6 @@ pa_open(PyObject *self, PyObject *args, PyObject *kwargs)
 #ifdef VERBOSE
     printf("Using output device index number: %d\n", output_device_index);
 #endif
-
   }
 
   /* sanity checks */

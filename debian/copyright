@@ -1,26 +1,6 @@
-PyAudio v0.2.7: Python Bindings for PortAudio.
-==============================================
+PyAudio is distributed under the MIT License. That is to say,
 
-Originally taken from:
-http://people.csail.mit.edu/hubert/pyaudio/
-
-PyAudio provides Python bindings for PortAudio, the cross-platform
-audio I/O library. Using PyAudio, you can easily use Python to play
-and record audio on a variety of platforms.
-
-PyAudio is designed to work with the PortAudio v19 API 2.0.
-PyAudio supports blocking-mode and non-blocking audio I/O.
-
-In addition to the original PyAudio from Hubert Pham, this fork adds
-non-blocking audio I/O and support for Python 3.
-
-See INSTALL for compilation hints.
-
-----------------------------------------------------------------------
-
-PyAudio : Python Bindings for PortAudio.
-
-Copyright (c) 2006-2010 Hubert Pham
+Copyright (c) 2006-2012 Hubert Pham
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
@@ -41,4 +21,17 @@ LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-----------------------------------------------------------------------
+The upstream PyAudio source is available at:
+
+git:      http://people.csail.mit.edu/hubert/git/pyaudio.git
+homepage: http://people.csail.mit.edu/hubert/pyaudio/
+
+The original PyAudio author is: Hubert Pham <hubert@mit.edu>.
+
+The Debian packaging of PyAudio is also distributed under the
+MIT license.
+
+Debian package maintainers include:
+  Hubert Pham <hubert@mit.edu>
+  Felipe Sateler <fsateler@debian.org>
+  Justin Mazzola Paluska <jmp@mit.edu>

@@ -1,7 +1,7 @@
 """
-PyAudio v0.2.X: Python Bindings for PortAudio.
+PyAudio v0.2.6: Python Bindings for PortAudio.
 
-Copyright (c) 2006-2010 Hubert Pham
+Copyright (c) 2006-2012 Hubert Pham
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
@@ -30,7 +30,7 @@ from distutils.core import setup, Extension
 import sys
 import os
 
-__version__ = "0.2.X"
+__version__ = "0.2.6"
 
 # Note: distutils will try to locate and link dynamically
 #       against portaudio.
@@ -77,9 +77,6 @@ else:
 if sys.platform == 'darwin':
     defines += [('MACOSX', '1')]
 
-    extra_compile_args += ["-mmacosx-version-min=10.6"]
-    extra_link_args += ["-mmacosx-version-min=10.6"]
-
     if mac_sysroot_path:
         extra_compile_args += ["-isysroot", mac_sysroot_path]
         extra_link_args += ["-isysroot", mac_sysroot_path]
@@ -117,20 +114,20 @@ if STATIC_LINKING:
 
 
 pyaudio = Extension('_portaudio',
-                    sources = pyaudio_module_sources,
-                    include_dirs = include_dirs,
-                    define_macros = defines,
-                    libraries = external_libraries,
-                    extra_compile_args = extra_compile_args,
-                    extra_link_args = extra_link_args)
+                    sources=pyaudio_module_sources,
+                    include_dirs=include_dirs,
+                    define_macros=defines,
+                    libraries=external_libraries,
+                    extra_compile_args=extra_compile_args,
+                    extra_link_args=extra_link_args)
 
-setup (name = 'PyAudio',
-       version = __version__,
-       author = "Hubert Pham",
-       url = "http://people.csail.mit.edu/hubert/pyaudio/",
-       description = 'PortAudio Python Bindings',
-       long_description = __doc__.lstrip(),
-       scripts = scripts,
-       py_modules = ['pyaudio'],
-       package_dir = {'': 'src'},
-       ext_modules = [pyaudio])
+setup(name = 'PyAudio',
+      version = __version__,
+      author = "Hubert Pham",
+      url = "http://people.csail.mit.edu/hubert/pyaudio/",
+      description = 'PortAudio Python Bindings',
+      long_description = __doc__.lstrip(),
+      scripts = scripts,
+      py_modules = ['pyaudio'],
+      package_dir = {'': 'src'},
+      ext_modules = [pyaudio])

@@ -1,6 +1,6 @@
 # PyAudio : Python Bindings for PortAudio.
 
-# Copyright (c) 2006-2010 Hubert Pham
+# Copyright (c) 2006-2012 Hubert Pham
 
 # Permission is hereby granted, free of charge, to any person obtaining
 # a copy of this software and associated documentation files (the
@@ -180,7 +180,7 @@ Details
 """
 
 __author__ = "Hubert Pham"
-__version__ = "0.2.4"
+__version__ = "0.2.6"
 __docformat__ = "restructuredtext en"
 
 import sys
@@ -199,13 +199,13 @@ except ImportError:
 
 ##### PaSampleFormat Sample Formats #####
 
-paFloat32      = pa.paFloat32      #: 32 bit float
-paInt32        = pa.paInt32        #: 32 bit int
-paInt24        = pa.paInt24        #: 24 bit int
-paInt16        = pa.paInt16        #: 16 bit int
-paInt8         = pa.paInt8         #: 8 bit int
-paUInt8        = pa.paUInt8        #: 8 bit unsigned int
-paCustomFormat = pa.paCustomFormat #: a custom data format
+paFloat32      = pa.paFloat32
+paInt32        = pa.paInt32
+paInt24        = pa.paInt24
+paInt16        = pa.paInt16
+paInt8         = pa.paInt8
+paUInt8        = pa.paUInt8
+paCustomFormat = pa.paCustomFormat
 
 ###### HostAPI TypeId #####
 
