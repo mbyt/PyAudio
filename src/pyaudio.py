@@ -199,13 +199,13 @@ except ImportError:
 
 ##### PaSampleFormat Sample Formats #####
 
-paFloat32      = pa.paFloat32      #: 32 bit float
-paInt32        = pa.paInt32        #: 32 bit int
-paInt24        = pa.paInt24        #: 24 bit int
-paInt16        = pa.paInt16        #: 16 bit int
-paInt8         = pa.paInt8         #: 8 bit int
-paUInt8        = pa.paUInt8        #: 8 bit unsigned int
-paCustomFormat = pa.paCustomFormat #: a custom data format
+paFloat32      = pa.paFloat32
+paInt32        = pa.paInt32
+paInt24        = pa.paInt24
+paInt16        = pa.paInt16
+paInt8         = pa.paInt8
+paUInt8        = pa.paUInt8
+paCustomFormat = pa.paCustomFormat
 
 ###### HostAPI TypeId #####
 

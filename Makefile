@@ -2,18 +2,16 @@
 
 .PHONY: docs clean
 
-EPYDOC ?= epydoc
+SPHINX_BUILD ?= sphinx-build
 
 VERSION := 0.2.6
 DOCS_OUTPUT=docs/
-DOC_NAME := PyAudio-$(VERSION)
-DOC_URL=http://people.csail.mit.edu/hubert/pyaudio/
 
 what:
 	@echo "make targets:"
 	@echo
 	@echo " tarball    : build source tarball"
-	@echo " docs       : generate documentation (requires epydoc)"
+	@echo " docs       : generate documentation (requires sphinx and only works after pyaudio has been installed)"
 	@echo " clean      : remove build files"
 	@echo
 	@echo "To build pyaudio, run:"
@@ -28,9 +26,7 @@ clean:
 ######################################################################
 
 docs:
-	@cd src; \
-	$(EPYDOC) -v -o ../$(DOCS_OUTPUT) --name $(DOC_NAME) --url $(DOC_URL) \
-	--no-private pyaudio.py
+	$(SPHINX_BUILD) -b html . $(DOCS_OUTPUT)
 
 ######################################################################
 # Source Tarball
