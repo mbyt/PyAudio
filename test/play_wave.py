@@ -1,6 +1,4 @@
-"""
-PyAudio Example: Play a wave file.
-"""
+"""PyAudio Example: Play a wave file."""
 
 import pyaudio
 import wave

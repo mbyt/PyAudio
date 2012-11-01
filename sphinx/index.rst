@@ -1,17 +1,21 @@
-Welcome to PyAudio's documentation!
-===================================
+PyAudio Documentation
+=====================
 
 .. contents::
 
-Module pyaudio
---------------
+------------
+Introduction
+------------
 
 .. automodule:: pyaudio
    :members:
    :special-members:
    :exclude-members: PyAudio, Stream, PaMacCoreStreamInfo
 
+   Details
+   -------
 
+-------------
 Class PyAudio
 -------------
 
@@ -19,6 +23,7 @@ Class PyAudio
    :members:
    :special-members:
 
+------------
 Class Stream
 ------------
 
@@ -26,12 +31,19 @@ Class Stream
    :members:
    :special-members:
 
-Class PaMacCoreStreamInfo
--------------------------
+-----------------
+Platform Specific
+-----------------
 
-.. autoclass:: pyaudio.PaMacCoreStreamInfo
-   :members:
-   :special-members:
+.. only:: pamac
+
+   Class PaMacCoreStreamInfo
+   -------------------------
+
+   .. autoclass:: pyaudio.PaMacCoreStreamInfo
+      :members:
+      :special-members:
+
 
 Indices and tables
 ==================

@@ -1709,9 +1709,9 @@ pa_open(PyObject *self, PyObject *args, PyObject *kwargs)
 
     return NULL;
 
-  if (PyCallable_Check(stream_callback) == 0) {
-    PyErr_SetString(PyExc_TypeError, "stream_callback must be callable");
-    return NULL;
+  if (stream_callback && (PyCallable_Check(stream_callback) == 0)) {
+      PyErr_SetString(PyExc_TypeError, "stream_callback must be callable");
+      return NULL;
   }
 
   /* check to see if device indices were specified */
