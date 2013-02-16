@@ -46,6 +46,7 @@ __version__ = "0.2.7"
 #       Be sure to specify the location of the libportaudio.a in
 #       the `extra_link_args' variable below.
 
+
 STATIC_LINKING = False
 
 if "--static-link" in sys.argv:
@@ -63,6 +64,7 @@ extra_compile_args = ['-fno-strict-aliasing']
 extra_link_args = []
 scripts = []
 defines = []
+library_dirs = []
 
 if STATIC_LINKING:
     extra_link_args = [
@@ -94,6 +96,17 @@ if STATIC_LINKING:
         external_libraries += ['winmm']
         extra_link_args += ['-lwinmm']
 
+    # must be before greedy mingw32 elif
+    elif sys.platform == 'win32' and os.getenv('DISTUTILS_USE_SDK'):
+        # i.e. MSC, force compile as C++ /Tp
+        from distutils import msvccompiler
+        msvccompiler.MSVCCompiler._c_extensions = []
+        msvccompiler.MSVCCompiler._cpp_extensions.append('.c')
+        # add dependent libraries
+        external_libraries += ['winmm', 'libportaudio', 'Advapi32', 'User32']
+        library_dirs += [os.path.join(portaudio_path, "lib", ".libs")]
+        extra_link_args = ['/NODEFAULTLIB:libcmt']  # overwrite linux option
+
     elif sys.platform == 'win32':
         # i.e., Win32 Python with mingw32
         # run: python setup.py build -cmingw32
@@ -112,12 +125,12 @@ if STATIC_LINKING:
 
         external_libraries += ['asound']
 
-
 pyaudio = Extension('_portaudio',
                     sources=pyaudio_module_sources,
                     include_dirs=include_dirs,
                     define_macros=defines,
                     libraries=external_libraries,
+                    library_dirs=library_dirs,
                     extra_compile_args=extra_compile_args,
                     extra_link_args=extra_link_args)
 

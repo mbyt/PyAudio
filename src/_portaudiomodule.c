@@ -36,10 +36,10 @@
 #define DEFAULT_FRAMES_PER_BUFFER 1024
 /* #define VERBOSE */
 
+/* MSC __typeof__ not defined, multi line assignment not possible
+   as function call parameter */
 #define min(a,b) \
-   ({ __typeof__ (a) _a = (a); \
-       __typeof__ (b) _b = (b); \
-     _a < _b ? _a : _b; })
+     (a) < (b) ? (a) : (b)
 
 /************************************************************
  *
@@ -1289,14 +1289,15 @@ pa_get_default_host_api(PyObject *self, PyObject *args)
 static PyObject *
 pa_host_api_type_id_to_host_api_index(PyObject *self, PyObject *args)
 {
-  PaHostApiTypeId typeid;
+  /* MSC typeid must not be used, typeid is an existing global used macro / fct
+   * of MSC */
+  PaHostApiTypeId mytypeid;
   PaHostApiIndex index;
 
-  if (!PyArg_ParseTuple(args, "i", &typeid))
+  if (!PyArg_ParseTuple(args, "i", &mytypeid))
     return NULL;
 
-  index = Pa_HostApiTypeIdToHostApiIndex(typeid);
-
+  index = Pa_HostApiTypeIdToHostApiIndex(mytypeid);
   if (index < 0) {
 
 #ifdef VERBOSE
@@ -1534,7 +1535,8 @@ _stream_callback_cfunction(const void *input,
   PyObject *py_input_data = Py_None;
 
   if (input) {
-    py_input_data = PyBytes_FromStringAndSize(input,
+    /* MSC cast necessary */
+    py_input_data = PyBytes_FromStringAndSize((const char *)input,
                                               bytes_per_frame * frameCount);
   }
 
